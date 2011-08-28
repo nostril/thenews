@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Bob</key>
+	<dict>
+		<key>tactics</key>
+		<array>
+			<string>lie</string>
+			<string>bully</string>
+			<string>cry</string>
+		</array>
+		<key>name</key>
+		<string>Bob Oden</string>
+		<key>showName</key>
+		<string>Bob&apos;s Show</string>
+		<key>startingSalary</key>
+		<integer>6000</integer>
+		<key>informative</key>
+		<integer>2</integer>
+		<key>entertaining</key>
+		<integer>8</integer>
+	</dict>
+	<key>Sam</key>
+	<dict>
+		<key>tactics</key>
+		<array>
+			<string>lie</string>
+			<string>bully</string>
+			<string>cry</string>
+		</array>
+		<key>name</key>
+		<string>Sam Oden</string>
+		<key>showName</key>
+		<string>Sam&apos;s Show</string>
+		<key>startingSalary</key>
+		<integer>2000</integer>
+		<key>informative</key>
+		<integer>7</integer>
+		<key>entertaining</key>
+		<integer>1</integer>
+	</dict>
+</dict>
+</plist>
