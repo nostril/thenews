@@ -14,17 +14,16 @@
     NSInteger entertaining, informative, knowledgeable;
     NSInteger startingSalary;
     
-    NSDictionary *stats;
     
 }
 
 @property (copy) NSString *name, *showName;
 @property (assign) NSInteger entertaining, informative, knowledgeable, startingSalary;
 
-@property (retain) NSDictionary *stats;
+
 
 +(id) loadPersonalitiesFromPlist;
--(id) returnPersonalityFromDictionary;
-+(id) returnArrayOfPersonalitiesFromDictionary;
+//-(id) returnPersonalityFromDictionary;
+//+(id) returnArrayOfPersonalitiesFromDictionary;
 @end
 

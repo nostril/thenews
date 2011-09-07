@@ -10,8 +10,12 @@
 #import "cocos2d.h"
 #import "GameObject.h"
 
+#import "Timeslot.h"
+
 @interface AdSlot : CCSprite {
     
+//	CCSprite *sprite;
 }
 
+-(void) test;
 @end

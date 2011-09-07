@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventTableView.h"
+#import "EventTableViewController.h"
 
 
-@interface RootViewController : UIViewController {
-
+@interface RootViewController : UIViewController 
+{
+	EventTableViewController *eventTableView;
+	IBOutlet EventTableViewController *eventTableViewController;
+	
 }
-
+@property (retain) EventTableViewController *eventTableView;
+@property (nonatomic, retain) IBOutlet EventTableViewController *tableView;
 @end

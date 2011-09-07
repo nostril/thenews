@@ -10,15 +10,17 @@
 #import "cocos2d.h"
 #import "GameObject.h"
 
-#import "Event.h"
+#import "CurrentEvent.h"
+#import "Timeslot.h"
 
-@interface EventSlot : CCSprite {
-    Event *event;
-	CCSprite *eventSlot;
+
+@interface EventSlot : Timeslot {
+	
+//	CCSprite *sprite;
 }
 
-@property (retain) Event *event;
+@property (retain) CurrentEvent *event;
 
+-(void)test;
 
--(id) coverEvent :(Event*) event;
 @end

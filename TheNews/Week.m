@@ -13,63 +13,66 @@
 @implementation Week
 
 	
-@synthesize week, monday, tuesday, wednesday, thursday, friday;
-
-- (void)dealloc
-{
-    [monday release];
-    [tuesday release];
-    [wednesday release];
-    [thursday release];
-    [friday release];
-    
-    [super dealloc];
-}
+@synthesize background;
+@synthesize monday, tuesday, wednesday, thursday, friday;
+@synthesize day;
 
 -(id) init
 {
     if (self = [super init])
     {
-		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+		
 		
 		CGSize screenSize = [CCDirector sharedDirector].winSize;
 		
-		// Set all the days here
 		
 		
+		sprite = [CCSprite spriteWithFile:@"graphics/WeekBG.png"];
+		[sprite setPosition: CGPointMake(screenSize.width/2, sprite.contentSize.height/2)];
+		
+		NSMutableArray *tempDay = [NSMutableArray new];
+		
+		for(int dayNumber = 0; dayNumber < 5; dayNumber++){
+			Day *newDay = [[Day alloc] initAtPosition:CGPointMake(dayNumber*200+114, sprite.contentSize.height)];
+			
+			// Give weekday names
+			switch (dayNumber) {
+				case 0:
+					newDay.name = @"Monday";
+					break;
+				case 1:
+					newDay.name = @"Tuesday";
+					break;
+				case 2:
+					newDay.name = @"Wednesday";
+					break;
+				case 3:
+					newDay.name = @"Thursday";
+					break;
+				case 4:
+					newDay.name = @"Friday";
+					break;
+				default:
+					break;
+			}
+			
+			// Sets position of days
+//			[newDay.eventSlot setPosition:CGPointMake(dayNumber*200+114, sprite.contentSize.height-105)];
+//			[newDay.adSlot setPosition:CGPointMake(dayNumber*200+114, sprite.contentSize.height-195)];
+//			[newDay.background setPosition:CGPointMake(dayNumber*200+114, sprite.contentSize.height/2)];
 
-		monday = [Day new];
-		monday.name = @"Monday";
-		[monday setPosition: CGPointMake(100, screenSize.height*0.17f)];
+			[self addChild:newDay z:1];
+			[tempDay addObject:newDay];
+		}
 		
-		tuesday = [Day new];
-		tuesday.name = @"Tuesday";
-		[tuesday setPosition: CGPointMake(250, screenSize.height*0.17f)];
+		day = [[NSArray alloc] initWithArray:tempDay];
 		
-		wednesday = [Day new];
-		wednesday.name = @"Wednesday";
-		[wednesday setPosition: CGPointMake(400, screenSize.height*0.17f)];
 		
-		thursday = [Day new];
-		thursday.name = @"Thursday";
-		[thursday setPosition: CGPointMake(550, screenSize.height*0.17f)];
 		
-		friday = [Day new];
-		friday.name = @"Friday";	
-		[friday setPosition: CGPointMake(700, screenSize.height*0.17f)];
-		
-		                
-		
-		[self addChild:monday];
-		[self addChild:tuesday];
-		[self addChild:wednesday];
-		[self addChild:thursday];
-		[self addChild:friday];
+		[self addChild:sprite z:0];
 		
     }
     return self;
 }
-
-
 
 @end

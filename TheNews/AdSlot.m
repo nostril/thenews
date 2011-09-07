@@ -11,4 +11,9 @@
 
 @implementation AdSlot
 
+
+
+-(void) test{
+	NSLog(@"AdSlot test");
+}
 @end

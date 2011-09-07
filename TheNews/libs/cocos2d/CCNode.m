@@ -524,6 +524,8 @@
 }
 
 #pragma mark CCNode Draw
+-(void) beforeDraw
+{}
 
 -(void) draw
 {
@@ -531,10 +533,58 @@
 	// Only use this function to draw your staff.
 	// DON'T draw your stuff outside this method
 }
+-(void) afterDraw
+{}
+// Original CCNode
+//-(void) visit
+//{
+//	// quick return if not visible
+//	if (!visible_)
+//		return;
+//	
+//	glPushMatrix();
+//	
+//	if ( grid_ && grid_.active) {
+//		[grid_ beforeDraw];
+//		[self transformAncestors];
+//	}
+//
+//	[self transform];
+//	
+//	if(children_) {
+//		ccArray *arrayData = children_->data;
+//		NSUInteger i = 0;
+//		
+//		// draw children zOrder < 0
+//		for( ; i < arrayData->num; i++ ) {
+//			CCNode *child = arrayData->arr[i];
+//			if ( [child zOrder] < 0 )
+//				[child visit];
+//			else
+//				break;
+//		}
+//		
+//		// self draw
+//		[self draw];
+//		
+//		// draw children zOrder >= 0
+//		for( ; i < arrayData->num; i++ ) {
+//			CCNode *child =  arrayData->arr[i];
+//			[child visit];
+//		}
+//
+//	} else
+//		[self draw];
+//	
+//	if ( grid_ && grid_.active)
+//		[grid_ afterDraw:self];
+//	
+//	glPopMatrix();
+//}
 
+//New CCNode, as per http://www.cocos2d-iphone.org/?s=cctableview
 -(void) visit
 {
-	// quick return if not visible
 	if (!visible_)
 		return;
 	
@@ -544,9 +594,9 @@
 		[grid_ beforeDraw];
 		[self transformAncestors];
 	}
-
-	[self transform];
 	
+	[self transform];
+	[self beforeDraw];
 	if(children_) {
 		ccArray *arrayData = children_->data;
 		NSUInteger i = 0;
@@ -571,7 +621,8 @@
 
 	} else
 		[self draw];
-	
+//	[self draw];
+	[self afterDraw];
 	if ( grid_ && grid_.active)
 		[grid_ afterDraw:self];
 	

@@ -5,11 +5,41 @@
 	<key>001</key>
 	<dict>
 		<key>name</key>
-		<string>paradehitandrun</string>
+		<string>Parade Hit And Run</string>
 		<key>description</key>
-		<string></string>
+		<string>hits a homeless guy with a float</string>
 		<key>headline</key>
-		<string></string>
+		<string>Parade run amuck!</string>
+		<key>bully</key>
+		<integer>3</integer>
+		<key>lie</key>
+		<integer>4</integer>
+		<key>humiliate</key>
+		<integer>8</integer>
+	</dict>
+	<key>002</key>
+	<dict>
+		<key>name</key>
+		<string>Super Bowl</string>
+		<key>description</key>
+		<string>the big football game</string>
+		<key>headline</key>
+		<string>football headline</string>
+		<key>bully</key>
+		<integer>3</integer>
+		<key>lie</key>
+		<integer>4</integer>
+		<key>humiliate</key>
+		<integer>8</integer>
+	</dict>
+	<key>003</key>
+	<dict>
+		<key>name</key>
+		<string>Elections</string>
+		<key>description</key>
+		<string>The elections</string>
+		<key>headline</key>
+		<string>elections headline</string>
 		<key>bully</key>
 		<integer>3</integer>
 		<key>lie</key>

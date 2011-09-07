@@ -9,15 +9,42 @@
 #import "cocos2d.h"
 #import "CCLayer.h"
 
+
+#import "CCUIViewWrapper.h"
+#import "CCTableView.h"
+#import "CCScrollView.h"
+
+//#import "SWScrollView.h"
+//#import "SWTableView.h"
+//#import "SWMultiColumnTableView.h"
+
+//#import "EventList.h"
+#import "EventTableViewController.h"
+#import "EventTableView.h"
 #import "Week.h"
 #import "Day.h"
 #import "Personality.h"
+#import "CurrentEvent.h"
+#import "AvailableEvents.h"
 
 @interface GameplayLayer : CCLayer
 {
-	
-
-	
+	Week *week;
+	// New touch stuff
+	CCSprite * background;
+	CCSprite * selSprite;
+	NSArray *currentEvents;
+	NSArray *personalities;
+	UIButton *button;
+	CCUIViewWrapper *wrapper;
+	EventTableView *tableView;
+	EventTableViewController *tableViewController;
 }
-	
+@property (assign) Week *week;
+
+
+// New touch stuff
+-(void)selectSpriteForTouch:(CGPoint)touchLocation;
+-(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;  
+
 @end

@@ -8,6 +8,7 @@
 
 #import "Day.h"
 
+#import "CCLabelTTF.h"
 
 @implementation Day
 
@@ -19,60 +20,65 @@
 
 @synthesize name;
 @synthesize personality;
+@synthesize background;
 @synthesize eventSlot;
 @synthesize adSlot;
-@synthesize day;
+@synthesize currentEvent;
 
-- (void)dealloc
-{
-    
-    [name release];
-    [personality release];
-    [eventSlot release];
-    [adSlot release];
-    [day release];
-    
 
-    [super dealloc];
-}
 
-- (id) init
+-(id) initAtPosition: (CGPoint) position
 {
 	if(self = [super init])
 	{
+		
 //		CGSize screenSize = [CCDirector sharedDirector].winSize;
 		
-		day = [CCSprite spriteWithFile:@"Day.png"];
-		[day setPosition: CGPointMake(0,0)];
 		
-		eventSlot = [CCSprite spriteWithFile:@"EventSlot.png"];
-		[eventSlot setPosition: CGPointMake(0,60)];
+		eventSlot = [Timeslot spriteWithFile:@"graphics/EventSlot.png"];
+		[eventSlot setPosition: CGPointMake(position.x, position.y-105)];
 		
-		adSlot = [CCSprite spriteWithFile:@"AdSlot.png"];
-		[adSlot setPosition: CGPointMake(0,30)];                
+		eventSlot.label = [CCLabelTTF labelWithString:@"empty" fontName:@"Futura" fontSize:24];
+		//The (75) is a bit of a hack
+		eventSlot.label.position = ccp(self.position.x+(75), self.position.y);
+//		eventSlot.label.position = self.position;
+//		NSLog(@"position.y: %f", position.y);
+		[eventSlot addChild:eventSlot.label z:2];
 		
-		[self addChild:day z:0];
+		adSlot = [Timeslot spriteWithFile:@"graphics/AdSlot.png"];
+		[adSlot setPosition: CGPointMake(position.x, position.y-195)]; 
+		
+		background = [CCSprite spriteWithFile:@"graphics/Day.png"];
+		[background setPosition: CGPointMake(position.x, position.y/2)]; 
+		
+		[self addChild:background z:0];
 		[self addChild:eventSlot z:1];
 		[self addChild:adSlot z:1];
-		
-		
+//		
+//		NSLog(@"%f", eventSlot.boundingBox.origin.y);
+//		NSLog(@"%f", adSlot.boundingBox.origin.y);
+				
 	}
 	return self;
 		
 }
 
-//-(id) init
-//{
-//    if (self = [super init])
-//    {
-//	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-//	
-//	
-//	[pool release];
-//    }
-//    return self;
-//}
-
+-(void) switchToEvent: (CurrentEvent*) newCurrentEvent
+{
+//	currentEvent = nil;
+	currentEvent = newCurrentEvent;
+	
+	eventSlot.name = newCurrentEvent.name;
+	
+	[eventSlot.label setString:self.eventSlot.name];
+//	eventSlot.label.position = eventSlot.position;
+//	NSLog(@"%f", eventSlot.label.position.x);
+//	[self addChild: eventSlot.label z:2];
+}
+-(void) test
+{
+	NSLog(@"Day test");
+}
 
 
 @end

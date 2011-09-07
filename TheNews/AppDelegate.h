@@ -11,10 +11,13 @@
 @class RootViewController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
-	UIWindow			*window;
-	RootViewController	*viewController;
+	IBOutlet UIWindow			*window;
+	IBOutlet RootViewController	*viewController;
+	
+	// my stuff
+	NSMutableArray *events;
 }
 
 @property (nonatomic, retain) UIWindow *window;
-
+@property (retain) NSMutableArray *events;
 @end

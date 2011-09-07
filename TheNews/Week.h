@@ -13,19 +13,17 @@
 
 #import "Day.h"
 
-@interface Week : CCSprite {
+@interface Week : CCNode {
     
 	// Make this array
-	CCSprite *week;
-	Day *monday, *tuesday, *wednesday, *thursday, *friday;
-	
+	CCSprite *sprite;
+	NSArray *day;
 	
     
 }
 
-@property (assign) CCSprite *week;
+@property (assign) CCSprite *background;
 @property (assign) Day *monday, *tuesday, *wednesday, *thursday, *friday;
-
-
+@property (assign) NSArray *day;
 
 @end

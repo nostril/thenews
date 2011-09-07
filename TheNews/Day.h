@@ -13,21 +13,28 @@
 #import "EventSlot.h"
 #import "AdSlot.h"
 
-@interface Day : CCSprite {
+@interface Day : CCNode {
     NSString *name;
     Personality *personality;
     
     EventSlot *eventSlot;
     AdSlot *adSlot;
-	CCSprite *day;
+	CCSprite *background;
+	NSInteger *today;
+	
+	CurrentEvent *currentEvent;
+	
 }
 
 @property (copy) NSString *name;
 @property (retain) Personality *personality;
+@property (retain) CCSprite *background;
 @property (retain) EventSlot *eventSlot;
 @property (retain) AdSlot *adSlot;
-@property (retain) CCSprite *day;
+@property (retain) CurrentEvent *currentEvent;
 
--(void) dealloc;
+-(id) initAtPosition: (CGPoint) position;
+-(void) switchToEvent: (CurrentEvent*) newEvent;
+-(void) test;
 
 @end

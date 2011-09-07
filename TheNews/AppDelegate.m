@@ -17,6 +17,7 @@
 @implementation AppDelegate
 
 @synthesize window;
+@synthesize events;
 
 - (void) removeStartupFlicker
 {

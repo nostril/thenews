@@ -13,10 +13,11 @@
 
 @synthesize event;
 
-- (id) coverEvent: (Event*) newEvent
+
+
+-(void)test
 {
-    // Probably animation stuff here
-    
-    return newEvent;
+	NSLog(@"4");
 }
+
 @end
