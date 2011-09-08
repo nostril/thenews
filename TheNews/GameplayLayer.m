@@ -43,24 +43,9 @@
 		
 		// Table Stuff Begins ––––––––––––––––––––––––––––––––––––––––––––––––
 		
-		tableView = [[EventTableView alloc] initWithFrame:CGRectMake(20, 20, 200, 400)];
-		tableViewController = [[EventTableViewController alloc] initWithStyle:UITableViewStylePlain andArray:currentEvents];
-//		tableView.dataSource = tableViewController.view;
-//		tableView.delegate = tableViewController.view;;
-		tableViewController.view = tableView;
-//		[tableView numberOfRowsInSection:currentEvents.count];
+		tableViewController = [[SlotListViewController alloc] initWithStyle:UITableViewStylePlain];
 		
-//		NSIndexPath *indexPath;
-//		NSInteger i = 0;
-		
-		[tableViewController numberOfSectionsInTableView:tableView];
-		[tableView numberOfRowsInSection:1];
-		
-		[tableViewController tableView:tableView cellForRowAtIndexPath:[NSIndexPath indexPathWithIndex:currentEvents.count]];
-		[tableViewController tableView:tableView numberOfRowsInSection:currentEvents.count];
-		[tableView reloadData];
-		
-		wrapper = [[CCUIViewWrapper alloc] initForUIView:tableView];
+		wrapper = [[CCUIViewWrapper alloc] initForUIView:tableViewController.tableView];
 		
 		[self addChild: wrapper];
 		
@@ -85,7 +70,7 @@
         if (CGRectContainsPoint(day.eventSlot.boundingBox, touchLocation)) 
 		{            
             newSprite = day.eventSlot;
-			[day switchToEvent:[currentEvents objectAtIndex:(arc4random() % 2)]];
+			[day switchToEvent:[currentEvents objectAtIndex:(arc4random() % currentEvents.count)]];
             break;
         }
 		else if (CGRectContainsPoint(day.adSlot.boundingBox, touchLocation)) 

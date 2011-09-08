@@ -21,6 +21,8 @@
 @synthesize name;
 @synthesize personality;
 @synthesize background;
+@synthesize dayHeader;
+@synthesize dayHeaderSprite;
 @synthesize eventSlot;
 @synthesize adSlot;
 @synthesize currentEvent;
@@ -34,6 +36,16 @@
 		
 //		CGSize screenSize = [CCDirector sharedDirector].winSize;
 		
+		background = [CCSprite spriteWithFile:@"graphics/Day.png"];
+		[background setPosition: CGPointMake(position.x, position.y/2)]; 
+		
+		dayHeaderSprite = [CCSprite spriteWithFile:@"Button.png"rect:CGRectMake(position.x, position.y, 100, 40)];
+		
+						   
+		dayHeader = [CCLabelTTF labelWithString:@"day name" fontName:@"Futura" fontSize:36];
+		[dayHeaderSprite addChild:dayHeader];
+//		dayHeader = [CCLabelTTF labelWithString:name dimensions:CGSizeMake(100, 100) alignment:UITextAlignmentCenter fontName:@"Futura" fontSize:36];
+		dayHeader.position = ccp(self.position.x, self.position.y);
 		
 		eventSlot = [Timeslot spriteWithFile:@"graphics/EventSlot.png"];
 		[eventSlot setPosition: CGPointMake(position.x, position.y-105)];
@@ -48,10 +60,10 @@
 		adSlot = [Timeslot spriteWithFile:@"graphics/AdSlot.png"];
 		[adSlot setPosition: CGPointMake(position.x, position.y-195)]; 
 		
-		background = [CCSprite spriteWithFile:@"graphics/Day.png"];
-		[background setPosition: CGPointMake(position.x, position.y/2)]; 
+		
 		
 		[self addChild:background z:0];
+		[self addChild:dayHeaderSprite z:2];
 		[self addChild:eventSlot z:1];
 		[self addChild:adSlot z:1];
 //		

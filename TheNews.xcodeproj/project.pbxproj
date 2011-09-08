@@ -13,7 +13,6 @@
 		863E188D1416F597007D9696 /* CCScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E18871416F597007D9696 /* CCScrollView.m */; };
 		863E188E1416F597007D9696 /* CCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E18891416F597007D9696 /* CCTableView.m */; };
 		863E188F1416F597007D9696 /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E188B1416F597007D9696 /* CCTableViewCell.m */; };
-		865E97A414175E8C009B5BA0 /* EventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E97A314175E8C009B5BA0 /* EventTableViewController.m */; };
 		868CFA95140844F7001E868B /* AdSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 868CFA88140844F6001E868B /* AdSlot.m */; };
 		868CFA96140844F7001E868B /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 868CFA8A140844F7001E868B /* Day.m */; };
 		868CFA97140844F7001E868B /* CurrentEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 868CFA8C140844F7001E868B /* CurrentEvent.m */; };
@@ -143,9 +142,7 @@
 		86A0CF8A13E7DA95002763E5 /* GameplayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CF8913E7DA95002763E5 /* GameplayLayer.m */; };
 		86A0CF8D13E7DB86002763E5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CF8C13E7DB86002763E5 /* GameScene.m */; };
 		86A0CF9013EA03AE002763E5 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CF8F13EA03AD002763E5 /* GameObject.m */; };
-		86FE6B0B141771A8003DC81B /* EventTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FE6B0A141771A8003DC81B /* EventTableView.m */; };
-		86FE6B0E14177302003DC81B /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86FE6B0D14177302003DC81B /* EventTableViewController.xib */; };
-		86FE6B1014182F46003DC81B /* EventTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86FE6B0F14182F46003DC81B /* EventTableView.xib */; };
+		86FE6B1414183696003DC81B /* SlotListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FE6B1214183696003DC81B /* SlotListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,8 +159,6 @@
 		863E18891416F597007D9696 /* CCTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableView.m; sourceTree = "<group>"; };
 		863E188A1416F597007D9696 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
 		863E188B1416F597007D9696 /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
-		865E97A214175E8C009B5BA0 /* EventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventTableViewController.h; path = ../../EventTableViewController.h; sourceTree = "<group>"; };
-		865E97A314175E8C009B5BA0 /* EventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventTableViewController.m; path = ../../EventTableViewController.m; sourceTree = "<group>"; };
 		868CFA87140844F6001E868B /* AdSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSlot.h; sourceTree = "<group>"; };
 		868CFA88140844F6001E868B /* AdSlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSlot.m; sourceTree = "<group>"; };
 		868CFA89140844F7001E868B /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
@@ -426,10 +421,8 @@
 		86A0CF8F13EA03AD002763E5 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		86B41E0413EA16E700B57E34 /* CommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocols.h; sourceTree = "<group>"; };
 		86B41E0613EA17E400B57E34 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		86FE6B09141771A8003DC81B /* EventTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableView.h; sourceTree = "<group>"; };
-		86FE6B0A141771A8003DC81B /* EventTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableView.m; sourceTree = "<group>"; };
-		86FE6B0D14177302003DC81B /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewController.xib; sourceTree = "<group>"; };
-		86FE6B0F14182F46003DC81B /* EventTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableView.xib; sourceTree = "<group>"; };
+		86FE6B1114183696003DC81B /* SlotListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotListViewController.h; sourceTree = "<group>"; };
+		86FE6B1214183696003DC81B /* SlotListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -870,12 +863,8 @@
 		86A0CF9113EA03B3002763E5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				86FE6B0F14182F46003DC81B /* EventTableView.xib */,
-				86FE6B09141771A8003DC81B /* EventTableView.h */,
-				86FE6B0A141771A8003DC81B /* EventTableView.m */,
-				86FE6B0D14177302003DC81B /* EventTableViewController.xib */,
-				865E97A214175E8C009B5BA0 /* EventTableViewController.h */,
-				865E97A314175E8C009B5BA0 /* EventTableViewController.m */,
+				86FE6B1114183696003DC81B /* SlotListViewController.h */,
+				86FE6B1214183696003DC81B /* SlotListViewController.m */,
 				868CFA93140844F7001E868B /* Week.h */,
 				868CFA94140844F7001E868B /* Week.m */,
 				868CFA89140844F7001E868B /* Day.h */,
@@ -982,8 +971,6 @@
 				868CFA9E14084504001E868B /* EventList.plist in Resources */,
 				868CFA9F14084504001E868B /* Personalities.plist in Resources */,
 				868CFAB014087F77001E868B /* graphics in Resources */,
-				86FE6B0E14177302003DC81B /* EventTableViewController.xib in Resources */,
-				86FE6B1014182F46003DC81B /* EventTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1109,8 +1096,7 @@
 				863E188D1416F597007D9696 /* CCScrollView.m in Sources */,
 				863E188E1416F597007D9696 /* CCTableView.m in Sources */,
 				863E188F1416F597007D9696 /* CCTableViewCell.m in Sources */,
-				865E97A414175E8C009B5BA0 /* EventTableViewController.m in Sources */,
-				86FE6B0B141771A8003DC81B /* EventTableView.m in Sources */,
+				86FE6B1414183696003DC81B /* SlotListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

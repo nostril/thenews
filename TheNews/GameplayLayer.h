@@ -18,9 +18,9 @@
 //#import "SWTableView.h"
 //#import "SWMultiColumnTableView.h"
 
-//#import "EventList.h"
-#import "EventTableViewController.h"
-#import "EventTableView.h"
+//Table stuff
+#import "SlotListViewController.h"
+
 #import "Week.h"
 #import "Day.h"
 #import "Personality.h"
@@ -37,8 +37,11 @@
 	NSArray *personalities;
 	UIButton *button;
 	CCUIViewWrapper *wrapper;
-	EventTableView *tableView;
-	EventTableViewController *tableViewController;
+	
+	
+	UITableView *tableView;
+	SlotListViewController *tableViewController;
+	
 }
 @property (assign) Week *week;
 
