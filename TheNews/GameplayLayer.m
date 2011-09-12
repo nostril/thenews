@@ -91,8 +91,11 @@
 				
 				[slotDetail hideDetail];
 			}
-			else
+			else{
+				// This is returning null. No, it's not.
 				[slotDetail showDetail:day.currentEvent];
+//				NSLog(day.currentEvent.name);
+			}
 			
 			
             break;
@@ -108,6 +111,8 @@
 		
     }
 	// If no slots are tapped
+	
+	// Here's the problem. Hiding detail no matter what.
 	[slotDetail hideDetail];
 	[tableViewController.tableView deselectRowAtIndexPath:[tableViewController.tableView indexPathForSelectedRow] animated:TRUE];
 	
