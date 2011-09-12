@@ -11,15 +11,17 @@
 
 @interface SlotDetail : CCSprite
 {
-	CCSprite *background;
-	CCLabelTTF *headline;
-	CCLabelTTF *description;
-	CCSprite *graphic;
+//	CCSprite *background;
+//	CCLabelTTF *headline;
+//	CCLabelTTF *description;
+//	CCSprite *graphic;
 }
 @property (retain) CCSprite *background;
 @property (retain) CCLabelTTF *headline;
 @property (retain) CCLabelTTF *description;
 @property (retain) CCSprite *graphic;
+
+@property (assign) BOOL *isShowing;
 
 
 -(void) showDetail:(CurrentEvent*)event;

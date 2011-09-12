@@ -9,11 +9,12 @@
 #import "SlotListViewController.h"
 #import "SlotListTableView.h"
 #import "SlotListCell.h"
+#import "SlotDetail.h"
 #import "CurrentEvent.h"
 
 @implementation SlotListViewController
 
-@synthesize events, table;
+@synthesize events, table, slotDetail;
 
 - (id)initWithStyle:(UITableViewStyle)style andArray:(NSArray*)eventsArray
 {
@@ -169,11 +170,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-	
-	NSLog(@"did select: %@", [[(SlotListCell*)[self.tableView cellForRowAtIndexPath:indexPath] event ]name] );
 	
 	
+	NSLog(@"selected %i: %@", [[tableView indexPathForSelectedRow]row], [[(SlotListCell*)[self.tableView cellForRowAtIndexPath:indexPath] event ]name] );
+	[slotDetail hideDetail];
+	[slotDetail showDetail:	[events objectAtIndex:[[tableView indexPathForSelectedRow]row]]];
 	
 	
     // Navigation logic may go here. Create and push another view controller.

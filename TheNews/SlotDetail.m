@@ -10,7 +10,7 @@
 
 @implementation SlotDetail
 
-@synthesize background, headline, description, graphic;
+@synthesize background, headline, description, graphic, isShowing;
 
 - (id)init
 {
@@ -18,7 +18,7 @@
     if (self) {
 		
 
-		
+		isShowing=FALSE;
 		
 		
 		
@@ -54,10 +54,13 @@
 	[self addChild:headline z:1];
 	[self addChild:description z:1];
 	
+	
+	isShowing=TRUE;
 }
 -(void) hideDetail
 {
 	[self removeAllChildrenWithCleanup:FALSE];
 	
+	isShowing=FALSE;
 }
 @end

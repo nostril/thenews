@@ -35,7 +35,9 @@
 		
 		// Quick population
 		for (Day *eachDay in week.day){
-			[eachDay switchToEvent:[currentEvents objectAtIndex:(arc4random() % currentEvents.count)]];
+//			[eachDay switchToEvent:[currentEvents objectAtIndex:(arc4random() % currentEvents.count)]];
+//			eachDay = nil;
+			[eachDay switchToEvent:nil];
 		}
 		
 		
@@ -51,6 +53,7 @@
 		
 		
 		slotDetail = [SlotDetail new];
+		tableViewController.slotDetail = slotDetail;
 		slotDetail.position = CGPointMake(600, 550);
 		[self addChild:slotDetail z:4];
 		
@@ -65,12 +68,6 @@
     CCSprite * newSprite = nil;
 	
 	
-	
-//	[tableViewController.table deselectRowAtIndexPath:[tableViewController.table indexPathForSelectedRow] animated:YES];
-////	NSLog(@"touch");
-//	[[tableViewController tableView] reloadData];
-	
-	
 	// Selects any sprite
     for (Day *day in week.day) 
 	{
@@ -82,15 +79,20 @@
 			
 			CurrentEvent *tempEvent;
 			tempEvent = [[CurrentEvent alloc] init];
-			tempEvent = [[CurrentEvent alloc] init];
-
+			
+			
 			
 			// Well... this is a bit of a hack
 			tempEvent = [tableViewController.events objectAtIndex:[[tableViewController.tableView indexPathForSelectedRow]row]];
-			[day switchToEvent:tempEvent];
 			
-			[slotDetail hideDetail];
-			[slotDetail showDetail:tempEvent];
+			if(slotDetail.isShowing)
+			{
+				[day switchToEvent:tempEvent];
+				
+				[slotDetail hideDetail];
+			}
+			else
+				[slotDetail showDetail:day.currentEvent];
 			
 			
             break;
@@ -100,15 +102,15 @@
 		{            
             newSprite = day.adSlot;
 			NSLog(@"ad slot touched");
-//			[day switchToEvent:[currentEvents objectAtIndex:(arc4random() % 2)]];
+			
             break;
         }
-		else
-		{
-			[slotDetail hideDetail];
-			
-		}
+		
     }
+	// If no slots are tapped
+	[slotDetail hideDetail];
+	[tableViewController.tableView deselectRowAtIndexPath:[tableViewController.tableView indexPathForSelectedRow] animated:TRUE];
+	
 	// Selecting sprite for first time
     if (newSprite != selSprite) {
 		

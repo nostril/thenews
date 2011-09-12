@@ -73,15 +73,16 @@
 
 -(void) switchToEvent: (CurrentEvent*) newCurrentEvent
 {
-//	currentEvent = nil;
-	currentEvent = newCurrentEvent;
-	
-	eventSlot.name = newCurrentEvent.name;
-	
-	[eventSlot.label setString:self.eventSlot.name];
-//	eventSlot.label.position = eventSlot.position;
-//	NSLog(@"%f", eventSlot.label.position.x);
-//	[self addChild: eventSlot.label z:2];
+	// If event isn't empty
+	if(newCurrentEvent){
+		currentEvent = newCurrentEvent;
+		eventSlot.name = newCurrentEvent.name;
+		[eventSlot.label setString:self.eventSlot.name];
+	}
+	else{
+		currentEvent = nil;
+		[eventSlot.label setString:@"Event Slot"];
+	}
 }
 -(void) test
 {
