@@ -17,8 +17,7 @@
     NSString *name;
     Personality *personality;
     
-	CCSprite *dayHeaderSprite;
-	CCLabelTTF *dayHeader;
+	CCLabelTTF *dayLabel;
     EventSlot *eventSlot;
     AdSlot *adSlot;
 	CCSprite *background;
@@ -30,8 +29,7 @@
 
 @property (copy) NSString *name;
 @property (retain) Personality *personality;
-@property (retain) CCSprite *dayHeaderSprite;
-@property (assign) CCLabelTTF *dayHeader;
+@property (assign) CCLabelTTF *dayLabel;
 @property (retain) CCSprite *background;
 @property (retain) EventSlot *eventSlot;
 @property (retain) AdSlot *adSlot;

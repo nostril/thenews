@@ -11,15 +11,10 @@
 
 
 #import "CCUIViewWrapper.h"
-#import "CCTableView.h"
-#import "CCScrollView.h"
 
-//#import "SWScrollView.h"
-//#import "SWTableView.h"
-//#import "SWMultiColumnTableView.h"
-
-//Table stuff
 #import "SlotListViewController.h"
+#import "SlotListCell.h"
+#import "SlotDetail.h"
 
 #import "Week.h"
 #import "Day.h"
@@ -39,12 +34,15 @@
 	CCUIViewWrapper *wrapper;
 	
 	
-	UITableView *tableView;
+//	UITableView *tableView;
 	SlotListViewController *tableViewController;
+	SlotDetail *slotDetail;
 	
 }
 @property (assign) Week *week;
 
+@property (retain) SlotListViewController *tableViewController;
+//@property (retain) UITableView *tableView;
 
 // New touch stuff
 -(void)selectSpriteForTouch:(CGPoint)touchLocation;

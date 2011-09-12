@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SlotListTableView;
 
 @interface SlotListViewController : UITableViewController
 {
 	NSArray *events;
-	UITableView *table;
+	SlotListTableView *table;
 }
 
 @property (retain) NSArray *events;
+@property (retain) SlotListTableView *table;
 @end

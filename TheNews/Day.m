@@ -21,8 +21,7 @@
 @synthesize name;
 @synthesize personality;
 @synthesize background;
-@synthesize dayHeader;
-@synthesize dayHeaderSprite;
+@synthesize dayLabel;
 @synthesize eventSlot;
 @synthesize adSlot;
 @synthesize currentEvent;
@@ -39,22 +38,19 @@
 		background = [CCSprite spriteWithFile:@"graphics/Day.png"];
 		[background setPosition: CGPointMake(position.x, position.y/2)]; 
 		
-		dayHeaderSprite = [CCSprite spriteWithFile:@"Button.png"rect:CGRectMake(position.x, position.y, 100, 40)];
+
 		
-						   
-		dayHeader = [CCLabelTTF labelWithString:@"day name" fontName:@"Futura" fontSize:36];
-		[dayHeaderSprite addChild:dayHeader];
-//		dayHeader = [CCLabelTTF labelWithString:name dimensions:CGSizeMake(100, 100) alignment:UITextAlignmentCenter fontName:@"Futura" fontSize:36];
-		dayHeader.position = ccp(self.position.x, self.position.y);
+		//The x.143 is the width of the day slot
+		dayLabel = [CCLabelTTF labelWithString:name dimensions:CGSizeMake(143, 100) alignment:UITextAlignmentCenter fontName:@"Futura" fontSize:26];
+		dayLabel.position = ccp(position.x, position.y-60);
+		
 		
 		eventSlot = [Timeslot spriteWithFile:@"graphics/EventSlot.png"];
-		[eventSlot setPosition: CGPointMake(position.x, position.y-105)];
+		eventSlot.position=ccp(position.x, position.y-105);
 		
-		eventSlot.label = [CCLabelTTF labelWithString:@"empty" fontName:@"Futura" fontSize:24];
-		//The (75) is a bit of a hack
-		eventSlot.label.position = ccp(self.position.x+(75), self.position.y);
-//		eventSlot.label.position = self.position;
-//		NSLog(@"position.y: %f", position.y);
+		eventSlot.label = [CCLabelTTF labelWithString:name dimensions:CGSizeMake(143, 100) alignment:UITextAlignmentCenter fontName:@"Futura" fontSize:22];
+		//The (75) is a bit of a hack... Maybe a position/2 somewhere
+		eventSlot.label.position = ccp(self.position.x+73, self.position.y+5);
 		[eventSlot addChild:eventSlot.label z:2];
 		
 		adSlot = [Timeslot spriteWithFile:@"graphics/AdSlot.png"];
@@ -63,7 +59,7 @@
 		
 		
 		[self addChild:background z:0];
-		[self addChild:dayHeaderSprite z:2];
+		[self addChild:dayLabel z:2];
 		[self addChild:eventSlot z:1];
 		[self addChild:adSlot z:1];
 //		

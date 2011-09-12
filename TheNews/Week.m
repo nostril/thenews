@@ -55,12 +55,8 @@
 				default:
 					break;
 			}
+			[newDay.dayLabel setString:newDay.name];
 			
-			// Sets position of days
-//			[newDay.eventSlot setPosition:CGPointMake(dayNumber*200+114, sprite.contentSize.height-105)];
-//			[newDay.adSlot setPosition:CGPointMake(dayNumber*200+114, sprite.contentSize.height-195)];
-//			[newDay.background setPosition:CGPointMake(dayNumber*200+114, sprite.contentSize.height/2)];
-
 			[self addChild:newDay z:1];
 			[tempDay addObject:newDay];
 		}

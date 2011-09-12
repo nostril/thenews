@@ -13,6 +13,8 @@
 		863E188D1416F597007D9696 /* CCScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E18871416F597007D9696 /* CCScrollView.m */; };
 		863E188E1416F597007D9696 /* CCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E18891416F597007D9696 /* CCTableView.m */; };
 		863E188F1416F597007D9696 /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E188B1416F597007D9696 /* CCTableViewCell.m */; };
+		8682F8A1141D420700AE800F /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682F8A0141D420700AE800F /* BackgroundLayer.m */; };
+		8682F8A4141D68DE00AE800F /* SlotListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682F8A3141D68DE00AE800F /* SlotListTableView.m */; };
 		868CFA95140844F7001E868B /* AdSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 868CFA88140844F6001E868B /* AdSlot.m */; };
 		868CFA96140844F7001E868B /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 868CFA8A140844F7001E868B /* Day.m */; };
 		868CFA97140844F7001E868B /* CurrentEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 868CFA8C140844F7001E868B /* CurrentEvent.m */; };
@@ -138,10 +140,11 @@
 		86A0CEED13E7A085002763E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CEEC13E7A085002763E5 /* main.m */; };
 		86A0CEF013E7A085002763E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CEEF13E7A085002763E5 /* AppDelegate.m */; };
 		86A0CEF313E7A085002763E5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CEF213E7A085002763E5 /* RootViewController.m */; };
-		86A0CF8413E7D93C002763E5 /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CF8313E7D93C002763E5 /* BackgroundLayer.m */; };
 		86A0CF8A13E7DA95002763E5 /* GameplayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CF8913E7DA95002763E5 /* GameplayLayer.m */; };
 		86A0CF8D13E7DB86002763E5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CF8C13E7DB86002763E5 /* GameScene.m */; };
 		86A0CF9013EA03AE002763E5 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CF8F13EA03AD002763E5 /* GameObject.m */; };
+		86AED6C214196C1900A42CF7 /* SlotListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AED6C114196C1900A42CF7 /* SlotListCell.m */; };
+		86AED6C8141D3D9700A42CF7 /* SlotDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AED6C7141D3D9600A42CF7 /* SlotDetail.m */; };
 		86FE6B1414183696003DC81B /* SlotListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FE6B1214183696003DC81B /* SlotListViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -159,6 +162,10 @@
 		863E18891416F597007D9696 /* CCTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableView.m; sourceTree = "<group>"; };
 		863E188A1416F597007D9696 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
 		863E188B1416F597007D9696 /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
+		8682F89F141D420700AE800F /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
+		8682F8A0141D420700AE800F /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayer.m; sourceTree = "<group>"; };
+		8682F8A2141D68DD00AE800F /* SlotListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotListTableView.h; sourceTree = "<group>"; };
+		8682F8A3141D68DE00AE800F /* SlotListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotListTableView.m; sourceTree = "<group>"; };
 		868CFA87140844F6001E868B /* AdSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSlot.h; sourceTree = "<group>"; };
 		868CFA88140844F6001E868B /* AdSlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSlot.m; sourceTree = "<group>"; };
 		868CFA89140844F7001E868B /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
@@ -411,14 +418,16 @@
 		86A0CEF113E7A085002763E5 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		86A0CEF213E7A085002763E5 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		86A0CEF713E7A085002763E5 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
-		86A0CF8213E7D93C002763E5 /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackgroundLayer.h; path = ../BackgroundLayer.h; sourceTree = "<group>"; };
-		86A0CF8313E7D93C002763E5 /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackgroundLayer.m; path = ../BackgroundLayer.m; sourceTree = "<group>"; };
 		86A0CF8813E7DA94002763E5 /* GameplayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayLayer.h; sourceTree = "<group>"; };
 		86A0CF8913E7DA95002763E5 /* GameplayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayLayer.m; sourceTree = "<group>"; };
 		86A0CF8B13E7DB86002763E5 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		86A0CF8C13E7DB86002763E5 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		86A0CF8E13EA03AC002763E5 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		86A0CF8F13EA03AD002763E5 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
+		86AED6C014196C1900A42CF7 /* SlotListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotListCell.h; sourceTree = "<group>"; };
+		86AED6C114196C1900A42CF7 /* SlotListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotListCell.m; sourceTree = "<group>"; };
+		86AED6C6141D3D9600A42CF7 /* SlotDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotDetail.h; sourceTree = "<group>"; };
+		86AED6C7141D3D9600A42CF7 /* SlotDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotDetail.m; sourceTree = "<group>"; };
 		86B41E0413EA16E700B57E34 /* CommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocols.h; sourceTree = "<group>"; };
 		86B41E0613EA17E400B57E34 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		86FE6B1114183696003DC81B /* SlotListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotListViewController.h; sourceTree = "<group>"; };
@@ -525,9 +534,9 @@
 		86A0CD9D13E7A07E002763E5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				868CFAAF14087F77001E868B /* graphics */,
 				868CFA9C14084504001E868B /* EventList.plist */,
 				868CFA9D14084504001E868B /* Personalities.plist */,
+				868CFAAF14087F77001E868B /* graphics */,
 				86A0CD9E13E7A07E002763E5 /* Default.png */,
 				86A0CDA013E7A07E002763E5 /* fps_images.png */,
 				86A0CDA213E7A07E002763E5 /* Icon-72.png */,
@@ -865,6 +874,12 @@
 			children = (
 				86FE6B1114183696003DC81B /* SlotListViewController.h */,
 				86FE6B1214183696003DC81B /* SlotListViewController.m */,
+				8682F8A2141D68DD00AE800F /* SlotListTableView.h */,
+				8682F8A3141D68DE00AE800F /* SlotListTableView.m */,
+				86AED6C014196C1900A42CF7 /* SlotListCell.h */,
+				86AED6C114196C1900A42CF7 /* SlotListCell.m */,
+				86AED6C6141D3D9600A42CF7 /* SlotDetail.h */,
+				86AED6C7141D3D9600A42CF7 /* SlotDetail.m */,
 				868CFA93140844F7001E868B /* Week.h */,
 				868CFA94140844F7001E868B /* Week.m */,
 				868CFA89140844F7001E868B /* Day.h */,
@@ -893,8 +908,8 @@
 		86A0CF9213EA03CF002763E5 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
-				86A0CF8213E7D93C002763E5 /* BackgroundLayer.h */,
-				86A0CF8313E7D93C002763E5 /* BackgroundLayer.m */,
+				8682F89F141D420700AE800F /* BackgroundLayer.h */,
+				8682F8A0141D420700AE800F /* BackgroundLayer.m */,
 				86A0CF8813E7DA94002763E5 /* GameplayLayer.h */,
 				86A0CF8913E7DA95002763E5 /* GameplayLayer.m */,
 				86A0CF8B13E7DB86002763E5 /* GameScene.h */,
@@ -1078,7 +1093,6 @@
 				86A0CEED13E7A085002763E5 /* main.m in Sources */,
 				86A0CEF013E7A085002763E5 /* AppDelegate.m in Sources */,
 				86A0CEF313E7A085002763E5 /* RootViewController.m in Sources */,
-				86A0CF8413E7D93C002763E5 /* BackgroundLayer.m in Sources */,
 				86A0CF8A13E7DA95002763E5 /* GameplayLayer.m in Sources */,
 				86A0CF8D13E7DB86002763E5 /* GameScene.m in Sources */,
 				86A0CF9013EA03AE002763E5 /* GameObject.m in Sources */,
@@ -1097,6 +1111,10 @@
 				863E188E1416F597007D9696 /* CCTableView.m in Sources */,
 				863E188F1416F597007D9696 /* CCTableViewCell.m in Sources */,
 				86FE6B1414183696003DC81B /* SlotListViewController.m in Sources */,
+				86AED6C214196C1900A42CF7 /* SlotListCell.m in Sources */,
+				86AED6C8141D3D9700A42CF7 /* SlotDetail.m in Sources */,
+				8682F8A1141D420700AE800F /* BackgroundLayer.m in Sources */,
+				8682F8A4141D68DE00AE800F /* SlotListTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1152,6 +1170,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TheNews/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = TheNews/Resources/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

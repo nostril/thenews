@@ -12,7 +12,7 @@
 
 @implementation GameplayLayer
 
-@synthesize week;
+@synthesize week, tableViewController;
 
 - (id)init
 {
@@ -31,9 +31,7 @@
 		week = [Week new];
 		[self addChild:week z:1];
 		
-//		AvailableEvents *availableEvents = [AvailableEvents new];
-//		[availableEvents updateWithArrayOfEvents:currentEvents];
-//		[self addChild:availableEvents z:1];
+
 		
 		// Quick population
 		for (Day *eachDay in week.day){
@@ -43,7 +41,7 @@
 		
 		// Table Stuff Begins ––––––––––––––––––––––––––––––––––––––––––––––––
 		
-		tableViewController = [[SlotListViewController alloc] initWithStyle:UITableViewStylePlain];
+		tableViewController = [[SlotListViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		
 		wrapper = [[CCUIViewWrapper alloc] initForUIView:tableViewController.tableView];
 		
@@ -51,6 +49,10 @@
 		
 		// Table Stuff Ends ––––––––––––––––––––––––––––––––––––––––––––––––––
 		
+		
+		slotDetail = [SlotDetail new];
+		slotDetail.position = CGPointMake(600, 550);
+		[self addChild:slotDetail z:4];
 		
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     }
@@ -63,16 +65,37 @@
     CCSprite * newSprite = nil;
 	
 	
+	
+//	[tableViewController.table deselectRowAtIndexPath:[tableViewController.table indexPathForSelectedRow] animated:YES];
+////	NSLog(@"touch");
+//	[[tableViewController tableView] reloadData];
+	
+	
 	// Selects any sprite
     for (Day *day in week.day) 
 	{
-
-        if (CGRectContainsPoint(day.eventSlot.boundingBox, touchLocation)) 
+		//Events
+		if (CGRectContainsPoint(day.eventSlot.boundingBox, touchLocation)) 
 		{            
             newSprite = day.eventSlot;
-			[day switchToEvent:[currentEvents objectAtIndex:(arc4random() % currentEvents.count)]];
+			
+			
+			CurrentEvent *tempEvent;
+			tempEvent = [[CurrentEvent alloc] init];
+			tempEvent = [[CurrentEvent alloc] init];
+
+			
+			// Well... this is a bit of a hack
+			tempEvent = [tableViewController.events objectAtIndex:[[tableViewController.tableView indexPathForSelectedRow]row]];
+			[day switchToEvent:tempEvent];
+			
+			[slotDetail hideDetail];
+			[slotDetail showDetail:tempEvent];
+			
+			
             break;
         }
+		//Ads
 		else if (CGRectContainsPoint(day.adSlot.boundingBox, touchLocation)) 
 		{            
             newSprite = day.adSlot;
@@ -80,6 +103,11 @@
 //			[day switchToEvent:[currentEvents objectAtIndex:(arc4random() % 2)]];
             break;
         }
+		else
+		{
+			[slotDetail hideDetail];
+			
+		}
     }
 	// Selecting sprite for first time
     if (newSprite != selSprite) {

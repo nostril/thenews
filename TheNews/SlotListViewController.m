@@ -7,10 +7,14 @@
 //
 
 #import "SlotListViewController.h"
+#import "SlotListTableView.h"
+#import "SlotListCell.h"
 #import "CurrentEvent.h"
 
 @implementation SlotListViewController
-@synthesize events;
+
+@synthesize events, table;
+
 - (id)initWithStyle:(UITableViewStyle)style andArray:(NSArray*)eventsArray
 {
     self = [super initWithStyle:style];
@@ -34,25 +38,17 @@
 
 - (void)viewDidLoad
 {
+	table = [SlotListTableView new];
 	events = [CurrentEvent loadEventsFromPlist];
     [super viewDidLoad];
-//	table=[[UITableViewController alloc]initWithStyle:UITableViewStylePlain];
-//	table.view.frame = CGRectMake(10, 10, 500, 500);
-//	
-//	[self.view addSubview:table.view];
-//	table.tableView.delegate=self; // set the table view delegate
-//	table.tableView.dataSource=self;
-	self.tableView.frame = CGRectMake(20, 20, 200, 400);
 	
-//	table=[[UITableView alloc]initWithFrame:CGRectMake(100, 100, 100, 100) style:UITableViewStylePlain];
-//	table.view.frame = CGRectMake(10, 10, 500, 500);
-	
-	
+	self.view.frame = CGRectMake(10, 20, 180, 400);
+
 	
 	[self.view addSubview:table];
-	table.delegate=self; // set the table view delegate
+	table.delegate=self;
 	table.dataSource=self;
-	[table cellForRowAtIndexPath:[NSIndexPath indexPathWithIndex:0]];
+//	[table cellForRowAtIndexPath:[NSIndexPath indexPathWithIndex:0]];
 	
 	
     // Uncomment the following line to preserve selection between presentations.
@@ -115,14 +111,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	
+    // because dequeueReusable returns a UITableCell by default
+    SlotListCell *cell = (SlotListCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-		cell.accessoryType = UITableViewCellAccessoryNone;
+        cell = [[[SlotListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		//Not sure what accessory type is
+//		cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    
-    cell.textLabel.text = [[self.events objectAtIndex:indexPath.row] name];
+    cell.event = [self.events objectAtIndex:indexPath.row];
+	
+	
+	cell.textLabel.text = cell.event.name;
     return cell;
 }
 
@@ -169,6 +169,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
+	
+	NSLog(@"did select: %@", [[(SlotListCell*)[self.tableView cellForRowAtIndexPath:indexPath] event ]name] );
+	
+	
+	
+	
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

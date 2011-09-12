@@ -1,0 +1,20 @@
+//
+//  SlotListCell.h
+//  TheNews
+//
+//  Created by Noah S Emmet on 9/8/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+#import "CurrentEvent.h"
+
+@interface SlotListCell : UITableViewCell
+{
+	CurrentEvent *event;
+	
+}
+
+@property (retain) CurrentEvent *event;
+@end
