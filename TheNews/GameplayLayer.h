@@ -16,7 +16,9 @@
 #import "SlotListCell.h"
 #import "SlotDetail.h"
 
-#import "Week.h"
+#import "ScheduleViewController.h"
+
+#import "Schedule.h"
 #import "Day.h"
 #import "Personality.h"
 #import "CurrentEvent.h"
@@ -24,24 +26,27 @@
 
 @interface GameplayLayer : CCLayer
 {
-	Week *week;
+	Schedule *schedule;
+//	Week *thisWeek;
 	// New touch stuff
 	CCSprite * background;
 	CCSprite * selSprite;
 	NSArray *currentEvents;
 	NSArray *personalities;
 	UIButton *button;
-	CCUIViewWrapper *wrapper;
 	
 	
-//	UITableView *tableView;
-	SlotListViewController *tableViewController;
+	CCUIViewWrapper *slotListWrapper;
+	SlotListViewController *slotListViewController;
 	SlotDetail *slotDetail;
 	
+	CCUIViewWrapper *scheduleViewWrapper;
+	ScheduleViewController *scheduleViewController;
+	
 }
-@property (assign) Week *week;
+@property (assign) Week *thisWeek;
 
-@property (retain) SlotListViewController *tableViewController;
+@property (retain) SlotListViewController *slotListViewController;
 //@property (retain) UITableView *tableView;
 
 // New touch stuff

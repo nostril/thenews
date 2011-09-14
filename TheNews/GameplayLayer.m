@@ -12,7 +12,7 @@
 
 @implementation GameplayLayer
 
-@synthesize week, tableViewController;
+@synthesize thisWeek, slotListViewController;
 
 - (id)init
 {
@@ -27,35 +27,45 @@
 		personalities = [Personality loadPersonalitiesFromPlist];
 		currentEvents = [CurrentEvent loadEventsFromPlist];
 		
+		schedule = [Schedule new];
 		
-		week = [Week new];
-		[self addChild:week z:1];
-		
+		//		thisWeek = [Week new];
+//		[self addChild:thisWeek z:1];
 
 		
+		[self addChild:schedule z:1];
+		
+		
+		
 		// Quick population
-		for (Day *eachDay in week.day){
-//			[eachDay switchToEvent:[currentEvents objectAtIndex:(arc4random() % currentEvents.count)]];
-//			eachDay = nil;
+		for (Day *eachDay in schedule.thisWeek.day){
 			[eachDay switchToEvent:nil];
 		}
 		
 		
-		// Table Stuff Begins ––––––––––––––––––––––––––––––––––––––––––––––––
+		// Slot list -- side
+		slotListViewController = [[SlotListViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		
-		tableViewController = [[SlotListViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		slotListWrapper = [[CCUIViewWrapper alloc] initForUIView:slotListViewController.tableView];
 		
-		wrapper = [[CCUIViewWrapper alloc] initForUIView:tableViewController.tableView];
-		
-		[self addChild: wrapper];
-		
-		// Table Stuff Ends ––––––––––––––––––––––––––––––––––––––––––––––––––
+		[self addChild: slotListWrapper];
 		
 		
+		// Schedule -- bottom, horizontal
+		scheduleViewController = [[ScheduleViewController alloc] initWithStyle:UITableViewStylePlain];
+		
+		scheduleViewWrapper = [[CCUIViewWrapper alloc] initForUIView:scheduleViewController.tableView];
+		
+		[self addChild: scheduleViewWrapper];
+		
+		
+		// Slot detail
 		slotDetail = [SlotDetail new];
-		tableViewController.slotDetail = slotDetail;
+		slotListViewController.slotDetail = slotDetail;
 		slotDetail.position = CGPointMake(600, 550);
 		[self addChild:slotDetail z:4];
+		
+		
 		
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     }
@@ -65,11 +75,13 @@
 // New touch stuff
 - (void)selectSpriteForTouch:(CGPoint)touchLocation 
 {
+	
+	// Think I'll have to sorta use the for loop as fodder for a switch case later down. The switch case looks at what is and isn't selected, decides what to display or eventswitch.
     CCSprite * newSprite = nil;
 	
 	
 	// Selects any sprite
-    for (Day *day in week.day) 
+    for (Day *day in thisWeek.day) 
 	{
 		//Events
 		if (CGRectContainsPoint(day.eventSlot.boundingBox, touchLocation)) 
@@ -83,7 +95,7 @@
 			
 			
 			// Well... this is a bit of a hack
-			tempEvent = [tableViewController.events objectAtIndex:[[tableViewController.tableView indexPathForSelectedRow]row]];
+			tempEvent = [slotListViewController.events objectAtIndex:[[slotListViewController.tableView indexPathForSelectedRow]row]];
 			
 			if(slotDetail.isShowing)
 			{
@@ -114,7 +126,7 @@
 	
 	// Here's the problem. Hiding detail no matter what.
 	[slotDetail hideDetail];
-	[tableViewController.tableView deselectRowAtIndexPath:[tableViewController.tableView indexPathForSelectedRow] animated:TRUE];
+	[slotListViewController.tableView deselectRowAtIndexPath:[slotListViewController.tableView indexPathForSelectedRow] animated:TRUE];
 	
 	// Selecting sprite for first time
     if (newSprite != selSprite) {

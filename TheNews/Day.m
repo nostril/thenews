@@ -32,43 +32,47 @@
 {
 	if(self = [super init])
 	{
-		
-//		CGSize screenSize = [CCDirector sharedDirector].winSize;
-		
-		background = [CCSprite spriteWithFile:@"graphics/Day.png"];
-		[background setPosition: CGPointMake(position.x, position.y/2)]; 
-		
-
-		
-		//The x.143 is the width of the day slot
-		dayLabel = [CCLabelTTF labelWithString:name dimensions:CGSizeMake(143, 100) alignment:UITextAlignmentCenter fontName:@"Futura" fontSize:26];
-		dayLabel.position = ccp(position.x, position.y-60);
-		
-		
-		eventSlot = [Timeslot spriteWithFile:@"graphics/EventSlot.png"];
-		eventSlot.position=ccp(position.x, position.y-105);
-		
-		eventSlot.label = [CCLabelTTF labelWithString:name dimensions:CGSizeMake(143, 100) alignment:UITextAlignmentCenter fontName:@"Futura" fontSize:22];
-		//The (75) is a bit of a hack... Maybe a position/2 somewhere
-		eventSlot.label.position = ccp(self.position.x+73, self.position.y+5);
-		[eventSlot addChild:eventSlot.label z:2];
-		
-		adSlot = [Timeslot spriteWithFile:@"graphics/AdSlot.png"];
-		[adSlot setPosition: CGPointMake(position.x, position.y-195)]; 
-		
-		
-		
-		[self addChild:background z:0];
-		[self addChild:dayLabel z:2];
-		[self addChild:eventSlot z:1];
-		[self addChild:adSlot z:1];
-//		
-//		NSLog(@"%f", eventSlot.boundingBox.origin.y);
-//		NSLog(@"%f", adSlot.boundingBox.origin.y);
+		[self drawDay:position];
 				
 	}
 	return self;
 		
+}
+-(void)drawDay:(CGPoint) position
+{
+	//		CGSize screenSize = [CCDirector sharedDirector].winSize;
+	
+	background = [CCSprite spriteWithFile:@"graphics/Day.png"];
+	[background setPosition: CGPointMake(position.x, position.y/2)]; 
+	
+	
+	
+	//The x.143 is the width of the day slot
+	dayLabel = [CCLabelTTF labelWithString:name dimensions:CGSizeMake(143, 100) alignment:UITextAlignmentCenter fontName:@"Futura" fontSize:26];
+	dayLabel.position = ccp(position.x, position.y-60);
+	
+	
+	eventSlot = [Timeslot spriteWithFile:@"graphics/EventSlot.png"];
+	eventSlot.position=ccp(position.x, position.y-105);
+	
+	eventSlot.label = [CCLabelTTF labelWithString:name dimensions:CGSizeMake(143, 100) alignment:UITextAlignmentCenter fontName:@"Futura" fontSize:22];
+	//The (75) is a bit of a hack... Maybe a position/2 somewhere
+	eventSlot.label.position = ccp(self.position.x+73, self.position.y+5);
+	[eventSlot addChild:eventSlot.label z:2];
+	
+	adSlot = [Timeslot spriteWithFile:@"graphics/AdSlot.png"];
+	[adSlot setPosition: CGPointMake(position.x, position.y-195)]; 
+	
+	
+	
+	[self addChild:background z:0];
+	[self addChild:dayLabel z:2];
+	[self addChild:eventSlot z:1];
+	[self addChild:adSlot z:1];
+	//		
+	//		NSLog(@"%f", eventSlot.boundingBox.origin.y);
+	//		NSLog(@"%f", adSlot.boundingBox.origin.y);
+
 }
 
 -(void) switchToEvent: (CurrentEvent*) newCurrentEvent

@@ -13,6 +13,13 @@
 		863E188D1416F597007D9696 /* CCScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E18871416F597007D9696 /* CCScrollView.m */; };
 		863E188E1416F597007D9696 /* CCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E18891416F597007D9696 /* CCTableView.m */; };
 		863E188F1416F597007D9696 /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E188B1416F597007D9696 /* CCTableViewCell.m */; };
+		8645D9CA14205B6D0091D34A /* PastDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645D9C914205B6D0091D34A /* PastDay.m */; };
+		8645D9CE14205BC60091D34A /* PastEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645D9CD14205BC60091D34A /* PastEvent.m */; };
+		8645D9D214205F660091D34A /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645D9D014205F660091D34A /* ScheduleViewController.m */; };
+		8645D9D314205F660091D34A /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8645D9D114205F660091D34A /* ScheduleViewController.xib */; };
+		8645D9D714205FAD0091D34A /* ScheduleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645D9D514205FAC0091D34A /* ScheduleTableView.m */; };
+		8645D9D814205FAD0091D34A /* ScheduleTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8645D9D614205FAC0091D34A /* ScheduleTableView.xib */; };
+		8645D9DB142077ED0091D34A /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645D9DA142077EB0091D34A /* Schedule.m */; };
 		8682F8A1141D420700AE800F /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682F8A0141D420700AE800F /* BackgroundLayer.m */; };
 		8682F8A4141D68DE00AE800F /* SlotListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682F8A3141D68DE00AE800F /* SlotListTableView.m */; };
 		868CFA95140844F7001E868B /* AdSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 868CFA88140844F6001E868B /* AdSlot.m */; };
@@ -162,6 +169,18 @@
 		863E18891416F597007D9696 /* CCTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableView.m; sourceTree = "<group>"; };
 		863E188A1416F597007D9696 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
 		863E188B1416F597007D9696 /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
+		8645D9C814205B6D0091D34A /* PastDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastDay.h; sourceTree = "<group>"; };
+		8645D9C914205B6D0091D34A /* PastDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastDay.m; sourceTree = "<group>"; };
+		8645D9CC14205BC60091D34A /* PastEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastEvent.h; sourceTree = "<group>"; };
+		8645D9CD14205BC60091D34A /* PastEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastEvent.m; sourceTree = "<group>"; };
+		8645D9CF14205F660091D34A /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		8645D9D014205F660091D34A /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		8645D9D114205F660091D34A /* ScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
+		8645D9D414205FAB0091D34A /* ScheduleTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableView.h; sourceTree = "<group>"; };
+		8645D9D514205FAC0091D34A /* ScheduleTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableView.m; sourceTree = "<group>"; };
+		8645D9D614205FAC0091D34A /* ScheduleTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableView.xib; sourceTree = "<group>"; };
+		8645D9D9142077EA0091D34A /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		8645D9DA142077EB0091D34A /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		8682F89F141D420700AE800F /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		8682F8A0141D420700AE800F /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayer.m; sourceTree = "<group>"; };
 		8682F8A2141D68DD00AE800F /* SlotListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotListTableView.h; sourceTree = "<group>"; };
@@ -862,16 +881,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		86A0CEFD13E7A090002763E5 /* Schedule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Schedule;
-			sourceTree = "<group>";
-		};
 		86A0CF9113EA03B3002763E5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8645D9D9142077EA0091D34A /* Schedule.h */,
+				8645D9DA142077EB0091D34A /* Schedule.m */,
+				8645D9CF14205F660091D34A /* ScheduleViewController.h */,
+				8645D9D014205F660091D34A /* ScheduleViewController.m */,
+				8645D9D114205F660091D34A /* ScheduleViewController.xib */,
+				8645D9D414205FAB0091D34A /* ScheduleTableView.h */,
+				8645D9D514205FAC0091D34A /* ScheduleTableView.m */,
+				8645D9D614205FAC0091D34A /* ScheduleTableView.xib */,
 				86FE6B1114183696003DC81B /* SlotListViewController.h */,
 				86FE6B1214183696003DC81B /* SlotListViewController.m */,
 				8682F8A2141D68DD00AE800F /* SlotListTableView.h */,
@@ -884,6 +904,10 @@
 				868CFA94140844F7001E868B /* Week.m */,
 				868CFA89140844F7001E868B /* Day.h */,
 				868CFA8A140844F7001E868B /* Day.m */,
+				8645D9C814205B6D0091D34A /* PastDay.h */,
+				8645D9C914205B6D0091D34A /* PastDay.m */,
+				8645D9CC14205BC60091D34A /* PastEvent.h */,
+				8645D9CD14205BC60091D34A /* PastEvent.m */,
 				860EFF72140F48A60001CE14 /* Timeslot.h */,
 				860EFF73140F48A60001CE14 /* Timeslot.m */,
 				868CFA8D140844F7001E868B /* EventSlot.h */,
@@ -898,7 +922,6 @@
 				868CFA92140844F7001E868B /* Tactics.m */,
 				86A0CF8E13EA03AC002763E5 /* GameObject.h */,
 				86A0CF8F13EA03AD002763E5 /* GameObject.m */,
-				86A0CEFD13E7A090002763E5 /* Schedule */,
 				868CFAB1140C49F8001E868B /* AvailableEvents.h */,
 				868CFAB2140C49F9001E868B /* AvailableEvents.m */,
 			);
@@ -986,6 +1009,8 @@
 				868CFA9E14084504001E868B /* EventList.plist in Resources */,
 				868CFA9F14084504001E868B /* Personalities.plist in Resources */,
 				868CFAB014087F77001E868B /* graphics in Resources */,
+				8645D9D314205F660091D34A /* ScheduleViewController.xib in Resources */,
+				8645D9D814205FAD0091D34A /* ScheduleTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,6 +1140,11 @@
 				86AED6C8141D3D9700A42CF7 /* SlotDetail.m in Sources */,
 				8682F8A1141D420700AE800F /* BackgroundLayer.m in Sources */,
 				8682F8A4141D68DE00AE800F /* SlotListTableView.m in Sources */,
+				8645D9CA14205B6D0091D34A /* PastDay.m in Sources */,
+				8645D9CE14205BC60091D34A /* PastEvent.m in Sources */,
+				8645D9D214205F660091D34A /* ScheduleViewController.m in Sources */,
+				8645D9D714205FAD0091D34A /* ScheduleTableView.m in Sources */,
+				8645D9DB142077ED0091D34A /* Schedule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

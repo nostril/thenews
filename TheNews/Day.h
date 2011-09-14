@@ -21,7 +21,6 @@
     EventSlot *eventSlot;
     AdSlot *adSlot;
 	CCSprite *background;
-	NSInteger *today;
 	
 	CurrentEvent *currentEvent;
 	
@@ -36,6 +35,7 @@
 @property (retain) CurrentEvent *currentEvent;
 
 -(id) initAtPosition: (CGPoint) position;
+-(void) drawDay:(CGPoint) position;
 -(void) switchToEvent: (CurrentEvent*) newEvent;
 -(void) test;
 
