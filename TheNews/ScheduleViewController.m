@@ -185,6 +185,7 @@
 		//		cell.accessoryType = UITableViewCellAccessoryNone;
     }
 	
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
 	cell.textLabel.numberOfLines = 2;
 	cell.textLabel.textColor = [UIColor blackColor];
@@ -196,6 +197,7 @@
 	cell.textLabel.backgroundColor = [UIColor lightGrayColor];
 	
 	switch (schedule.pastDays.count - indexPath.row +2) {
+		// Today
 		case 2:
 			
 			cell.textLabel.backgroundColor = [UIColor whiteColor];

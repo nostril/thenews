@@ -9,6 +9,8 @@
 #import "cocos2d.h"
 #import "CCLayer.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+
 @interface BackgroundLayer : CCLayer {
 	
 	

@@ -17,10 +17,12 @@
         CCSprite *backgroundImage = [CCSprite spriteWithFile: @"graphics/CityScape.png"];
 		
 		CGSize screenSize = [[CCDirector sharedDirector] winSize];
-		//The 550 is a hack
-		[backgroundImage setPosition: CGPointMake(screenSize.width/2, 550)];
+		//The 500 is a hack
+		[backgroundImage setPosition: CGPointMake(screenSize.width/2, 500)];
 		
 		[self addChild:backgroundImage z:0 tag:0];
+		
+		
     }
 
     

@@ -44,7 +44,7 @@
 	events = [CurrentEvent loadEventsFromPlist];
     [super viewDidLoad];
 	
-	self.view.frame = CGRectMake(10, 20, 180, 400);
+	self.view.frame = CGRectMake(10, 20, 180, 500);
 
 	
 	[self.view addSubview:table];

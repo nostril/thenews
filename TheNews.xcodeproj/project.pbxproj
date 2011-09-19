@@ -12,6 +12,7 @@
 		863E188D1416F597007D9696 /* CCScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E18871416F597007D9696 /* CCScrollView.m */; };
 		863E188E1416F597007D9696 /* CCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E18891416F597007D9696 /* CCTableView.m */; };
 		863E188F1416F597007D9696 /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 863E188B1416F597007D9696 /* CCTableViewCell.m */; };
+		864208A61427560D0077EC13 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864208A51427560D0077EC13 /* MediaPlayer.framework */; };
 		8645D9CA14205B6D0091D34A /* PastDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645D9C914205B6D0091D34A /* PastDay.m */; };
 		8645D9CE14205BC60091D34A /* PastEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645D9CD14205BC60091D34A /* PastEvent.m */; };
 		8645D9D214205F660091D34A /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645D9D014205F660091D34A /* ScheduleViewController.m */; };
@@ -163,6 +164,7 @@
 		863E18891416F597007D9696 /* CCTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableView.m; sourceTree = "<group>"; };
 		863E188A1416F597007D9696 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
 		863E188B1416F597007D9696 /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
+		864208A51427560D0077EC13 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		8645D9C814205B6D0091D34A /* PastDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastDay.h; sourceTree = "<group>"; };
 		8645D9C914205B6D0091D34A /* PastDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastDay.m; sourceTree = "<group>"; };
 		8645D9CC14205BC60091D34A /* PastEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastEvent.h; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				864208A61427560D0077EC13 /* MediaPlayer.framework in Frameworks */,
 				86A0CD8D13E7A07E002763E5 /* QuartzCore.framework in Frameworks */,
 				86A0CD8F13E7A07E002763E5 /* OpenGLES.framework in Frameworks */,
 				86A0CD9113E7A07E002763E5 /* OpenAL.framework in Frameworks */,
@@ -491,6 +494,7 @@
 		86A0CD7D13E7A07E002763E5 = {
 			isa = PBXGroup;
 			children = (
+				864208A51427560D0077EC13 /* MediaPlayer.framework */,
 				86A0CD9C13E7A07E002763E5 /* TheNews */,
 				86A0CD8B13E7A07E002763E5 /* Frameworks */,
 				86A0CD8913E7A07E002763E5 /* Products */,
@@ -526,14 +530,14 @@
 				86B41E0513EA16ED00B57E34 /* Constants */,
 				86A0CF9213EA03CF002763E5 /* Layers */,
 				86A0CF9113EA03B3002763E5 /* Classes */,
-				863E18821416F590007D9696 /* CCTables */,
-				863E17BE141476D4007D9696 /* CCUIViewWrapper */,
+				86A0CD9D13E7A07E002763E5 /* Resources */,
 				86A0CEEE13E7A085002763E5 /* AppDelegate.h */,
 				86A0CEEF13E7A085002763E5 /* AppDelegate.m */,
 				86A0CEF113E7A085002763E5 /* RootViewController.h */,
 				86A0CEF213E7A085002763E5 /* RootViewController.m */,
 				86A0CEF713E7A085002763E5 /* GameConfig.h */,
-				86A0CD9D13E7A07E002763E5 /* Resources */,
+				863E18821416F590007D9696 /* CCTables */,
+				863E17BE141476D4007D9696 /* CCUIViewWrapper */,
 				86A0CDB113E7A07E002763E5 /* libs */,
 				86A0CEEA13E7A085002763E5 /* Supporting Files */,
 			);

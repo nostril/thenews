@@ -51,7 +51,6 @@
 		
 		scheduleViewController.schedule = schedule;
 		
-		
 		[self addChild: scheduleViewWrapper];
 		
 		
@@ -64,6 +63,16 @@
 		
 		
 		
+		// Timelapse stuff
+
+		
+//		player = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:@"graphics/cityTimeLapse.mp4"]];
+//		[player.view setFrame:CGRectMake(0, 0, 1024, 786)];  // player's frame must match parent's
+//		playerViewWrapper = [[CCUIViewWrapper alloc] initForUIView:player.view];
+//		[self addChild: playerViewWrapper z:-1];
+//		
+//		[player play];
+
 		
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     }

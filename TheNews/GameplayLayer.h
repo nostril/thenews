@@ -9,6 +9,7 @@
 #import "cocos2d.h"
 #import "CCLayer.h"
 
+#import <MediaPlayer/MediaPlayer.h>
 
 #import "CCUIViewWrapper.h"
 
@@ -26,6 +27,8 @@
 
 @interface GameplayLayer : CCLayer
 {
+	MPMoviePlayerController *player;
+	CCUIViewWrapper *playerViewWrapper;
 	
 //	Week *thisWeek;
 	// New touch stuff
