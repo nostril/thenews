@@ -175,7 +175,7 @@
 {
 	
 	
-	NSLog(@"selected! %i: %@", [[tableView indexPathForSelectedRow]row], [[(SlotListCell*)[self.tableView cellForRowAtIndexPath:indexPath] event ]name] );
+//	NSLog(@"selected! %i: %@", [[tableView indexPathForSelectedRow]row], [[(SlotListCell*)[self.tableView cellForRowAtIndexPath:indexPath] event ]name] );
 	[slotDetail hideDetail];
 	[slotDetail showDetail:	[events objectAtIndex:[[tableView indexPathForSelectedRow]row]]];
 

@@ -79,9 +79,13 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {    
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
-    [self selectSpriteForTouch:touchLocation]; 
+    [self selectSpriteForTouch:touchLocation];
 	
-//	[schedule goToNextDay];
+	[slotDetail hideDetail];
+//	NSLog([[scheduleViewController.tableView indexPathForSelectedRow] row]);
+	
+	//This isn't working
+	[scheduleViewController.tableView deselectRowAtIndexPath:[scheduleViewController.tableView indexPathForSelectedRow] animated:YES];
 	
 	//Put this stuff in -reloadData method?
 	[scheduleViewController.tableView reloadData];
