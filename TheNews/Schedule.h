@@ -8,19 +8,20 @@
 
 #import "CCNode.h"
 
-#import "Week.h"
 #import "Day.h"
+#import "UpcomingDay.h"
 #import "PastDay.h"
 
 @interface Schedule : CCNode
 {
-	NSMutableArray *pastDays;
+	
+	int dayOfTheWeek;
 	
 }
 
-@property (retain) Week *thisWeek;
-@property (retain) Day *thisDay;
+@property (retain) NSMutableArray *pastDays;
+@property (retain) UpcomingDay *today, *tomorrow, *dayAfterTomorrow;
 
--(void) progressDay;
+-(void) goToNextDay;
 @end
 

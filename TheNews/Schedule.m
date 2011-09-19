@@ -10,31 +10,37 @@
 
 @implementation Schedule
 
-@synthesize thisWeek, thisDay;
+@synthesize pastDays, today, tomorrow, dayAfterTomorrow;
 
 - (id)init
 {
     self = [super init];
     if (self) {
+		dayOfTheWeek = 0;
 		
-		thisWeek = [Week new];
+		today = [[UpcomingDay alloc] initWithDayNumber:dayOfTheWeek];
+		dayOfTheWeek++;
+		tomorrow = [[UpcomingDay alloc] initWithDayNumber:dayOfTheWeek];
+		dayOfTheWeek++;
+		dayAfterTomorrow = [[UpcomingDay alloc] initWithDayNumber:dayOfTheWeek];
+		dayOfTheWeek++;
 		
 		
 		pastDays = [NSMutableArray new];
 		
 		
-		[self addChild:thisWeek z:0];
+		
     }
     
     return self;
 }
 
--(void) progressDay
+-(void) goToNextDay
 {
-	PastDay *pastDay = [[PastDay alloc] initWithDay:thisDay];
-	[pastDays addObject:thisDay];
+	PastDay *pastDay = [[PastDay alloc] initWithDay:today];
+	[pastDays addObject:today];
 	
-	[thisDay dealloc];
-	thisDay = [Day new];
+	[today dealloc];
+	today = [Day new];
 }
 @end

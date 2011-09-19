@@ -17,5 +17,5 @@
 }
 
 -(void) updateWithArrayOfEvents: (NSArray*) events;
--(void) drawList;
+
 @end

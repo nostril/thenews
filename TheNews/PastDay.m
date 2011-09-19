@@ -17,9 +17,9 @@
     if (self) {
         // Initialization code here.
 		
-		name = [NSString stringWithString:today.name];
+		self.name = today.name;
+//		self.pastEvent = [pastEvent initWithCurrentEvent:];
 		
-		pastEvent = [[PastEvent alloc] initWithEvent:today.eventSlot.event];
     }
     
     return self;

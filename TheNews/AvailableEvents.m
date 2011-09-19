@@ -8,7 +8,7 @@
 
 #import "AvailableEvents.h"
 
-#import "EventSlot.h"
+
 
 @implementation AvailableEvents
 -(id) init
@@ -34,19 +34,5 @@
 	[self drawList];
 	
 }
--(void) drawList
-{
-	for(int i=0; i<availableEvents.count; i++)
-	{
-		EventSlot *event = [EventSlot spriteWithFile:@"AdSlot.png"];
-//		= [CCSprite spriteWithFile:@"EventSlot.png"];
-		event.name = @"test name";
-		
-		[event setPosition: CGPointMake(100, 500 - (i * 30))];
-		
-		[self addChild:event z:1];
-		
-	}
-	
-}
+
 @end

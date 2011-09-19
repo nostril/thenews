@@ -9,12 +9,15 @@
 #import "CCNode.h"
 #import "CurrentEvent.h"
 
-@interface PastEvent : CCNode
+@interface PastEvent : Event
 {
 	
-    
 }
-@property (assign) NSString *name, *headline, *description;
-- (id)initWithEvent:(CurrentEvent*)currentEvent;
+
+
+-(id)initWithCurrentEvent:(CurrentEvent*)currentEvent;
+
 
 @end
+
+

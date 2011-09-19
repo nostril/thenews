@@ -8,7 +8,12 @@
 
 #import "ScheduleTableView.h"
 
+
 @implementation ScheduleTableView
+
+@synthesize delegate;
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -26,7 +26,7 @@
 
 @interface GameplayLayer : CCLayer
 {
-	Schedule *schedule;
+	
 //	Week *thisWeek;
 	// New touch stuff
 	CCSprite * background;
@@ -44,7 +44,7 @@
 	ScheduleViewController *scheduleViewController;
 	
 }
-@property (assign) Week *thisWeek;
+@property (assign) Schedule *schedule;
 
 @property (retain) SlotListViewController *slotListViewController;
 //@property (retain) UITableView *tableView;

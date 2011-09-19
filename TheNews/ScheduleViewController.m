@@ -6,17 +6,28 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#define UPCOMING_CELL_WIDTH 200
+#define PAST_CELL_WIDTH 160
+
 #import "ScheduleViewController.h"
 #import "cocos2d.h"
 
+
 @implementation ScheduleViewController
+
+@synthesize schedule;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
 		
+		UISwipeGestureRecognizer *gesture = 
+		[[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToNextDay:)] autorelease];
+		[gesture setDirection:UISwipeGestureRecognizerDirectionUp];
+		[self.tableView addGestureRecognizer:gesture];
 		
+
 		CGSize screenSize = [CCDirector sharedDirector].winSize;
 		
 		table = [ScheduleTableView new];
@@ -37,6 +48,45 @@
     return self;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	// Custom cell widths. Not sure about the +2>2
+	if((schedule.pastDays.count - indexPath.row + 2) > 2)
+		return PAST_CELL_WIDTH;
+	else 
+		return UPCOMING_CELL_WIDTH;
+}
+
+-(void)swipeToNextDay:(UIGestureRecognizer *)gestureRecognizer {
+	
+	if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+		CGPoint offset = self.tableView.contentOffset;
+		CGRect bounds = self.tableView.bounds;
+		CGSize size = self.tableView.contentSize;
+		UIEdgeInsets inset = self.tableView.contentInset;
+		float y = offset.y + bounds.size.height - inset.bottom;
+		float h = size.height;
+//		 NSLog(@"offset: %f", offset.y);   
+//		 NSLog(@"content.height: %f", size.height);   
+//		 NSLog(@"bounds.height: %f", bounds.size.height);   
+//		 NSLog(@"inset.top: %f", inset.top);   
+//		 NSLog(@"inset.bottom: %f", inset.bottom);   
+//		 NSLog(@"pos: %f of %f", y, h);
+		
+		float reload_distance = 100;
+		if(y > h - reload_distance) {
+			
+			NSLog(@"swiped!");
+			[schedule goToNextDay];
+			[self.tableView reloadData];
+			[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.pastDays.count inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+		}
+	}
+}
+
+
+
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -49,6 +99,17 @@
 
 - (void)viewDidLoad
 {
+	table = [ScheduleTableView new];
+    [super viewDidLoad];
+//	
+	
+
+	
+	[self.view addSubview:table];
+	table.delegate=self;
+	table.dataSource=self;
+
+	
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -73,6 +134,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+	
+	
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -104,20 +167,64 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+	// The plus three is for today, tomorrow, and the dayAfterTomorrow
+    return (schedule.pastDays.count + 3);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	
+    // because dequeueReusable returns a UITableCell by default
+    ScheduleCell *cell = (ScheduleCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[ScheduleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier atDayNumber:indexPath.row] autorelease];
+		
+		cell.textLabel.transform = CGAffineTransformMakeRotation( M_PI/2 );
+		//Not sure what accessory type is
+		//		cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    
-    // Configure the cell...
-    
+	
+	
+	cell.textLabel.numberOfLines = 2;
+	cell.textLabel.textColor = [UIColor blackColor];
+	
+	
+	cell.textLabel.textAlignment = UITextAlignmentCenter;
+	cell.textLabel.font = [UIFont fontWithName:@"Futura" size:26];
+	
+	cell.textLabel.backgroundColor = [UIColor lightGrayColor];
+	
+	switch (schedule.pastDays.count - indexPath.row +2) {
+		case 2:
+			
+			cell.textLabel.backgroundColor = [UIColor whiteColor];
+			cell.textLabel.text = cell.day.name;
+			cell.textLabel.textColor = [UIColor blueColor];
+			break;
+			
+		case 1:
+			cell.textLabel.backgroundColor = [UIColor whiteColor];
+			cell.textLabel.text = cell.day.name;
+			break;
+			
+		case 0:
+			cell.textLabel.backgroundColor = [UIColor whiteColor];
+			cell.textLabel.text = cell.day.name;
+			break;
+			
+		case -1:
+			cell.textLabel.text = cell.day.name;
+			break;
+			
+		default:
+			cell.textLabel.text = cell.day.name;
+			break;
+	}
+	
+	
+//	[table scrollToRowAtIndexPath:(indexPath) atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+
     return cell;
 }
 

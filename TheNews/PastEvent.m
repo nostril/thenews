@@ -9,15 +9,15 @@
 #import "PastEvent.h"
 
 @implementation PastEvent
-@synthesize name, headline, description;
-- (id)initWithEvent:(CurrentEvent*)currentEvent
+
+- (id)initWithCurrentEvent:(CurrentEvent*)currentEvent
 {
     self = [super init];
     if (self) {
         // Initialization code here.
-		name = [NSString stringWithString:currentEvent.name];
-		headline = [NSString stringWithString:currentEvent.headline];
-		description = [NSString stringWithString:currentEvent.description];
+		self.name = [NSString stringWithString:currentEvent.name];
+		self.headline = [NSString stringWithString:currentEvent.headline];
+		self.description = [NSString stringWithString:currentEvent.description];
     }
     
     return self;

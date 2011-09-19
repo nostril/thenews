@@ -33,7 +33,7 @@
 }
 -(void) showDetail:(CurrentEvent*)event
 {
-//	NSLog(@"show detail: %@", event.name);
+	NSLog(@"show detail: %@", event.name);
 	background = [CCSprite spriteWithFile:@"graphics/PaperSheet.png"];
 	[background setPosition: CGPointMake(0,0)];
 //	[background setPosition: CGPointMake(self.position.x, self.position.y/2)]; 

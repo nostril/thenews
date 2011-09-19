@@ -19,79 +19,51 @@
 
 
 @synthesize name;
-@synthesize personality;
-@synthesize background;
-@synthesize dayLabel;
-@synthesize eventSlot;
-@synthesize adSlot;
-@synthesize currentEvent;
+@synthesize event;
 
 
 
--(id) initAtPosition: (CGPoint) position
+-(id) initWithDayNumber:(int)dayNumber
 {
 	if(self = [super init])
 	{
-		[self drawDay:position];
+
+	
+		switch (dayNumber % 5)
+		{
+			case 0:
+				name = @"Monday";
+				break;
+			case 1:
+				name = @"Tuesday";
+				break;
+			case 2:
+				name = @"Wednesday";
+				break;
+			case 3:
+				name = @"Thursday";
+				break;
+			case 4:
+				name = @"Friday";
+				break;
+			default:
+				break;
+		}
 				
 	}
+	
+	[self switchToEvent:nil];
+	
 	return self;
 		
 }
--(void)drawDay:(CGPoint) position
-{
-	//		CGSize screenSize = [CCDirector sharedDirector].winSize;
-	
-	background = [CCSprite spriteWithFile:@"graphics/Day.png"];
-	[background setPosition: CGPointMake(position.x, position.y/2)]; 
-	
-	
-	
-	//The x.143 is the width of the day slot
-	dayLabel = [CCLabelTTF labelWithString:name dimensions:CGSizeMake(143, 100) alignment:UITextAlignmentCenter fontName:@"Futura" fontSize:26];
-	dayLabel.position = ccp(position.x, position.y-60);
-	
-	
-	eventSlot = [Timeslot spriteWithFile:@"graphics/EventSlot.png"];
-	eventSlot.position=ccp(position.x, position.y-105);
-	
-	eventSlot.label = [CCLabelTTF labelWithString:name dimensions:CGSizeMake(143, 100) alignment:UITextAlignmentCenter fontName:@"Futura" fontSize:22];
-	//The (75) is a bit of a hack... Maybe a position/2 somewhere
-	eventSlot.label.position = ccp(self.position.x+73, self.position.y+5);
-	[eventSlot addChild:eventSlot.label z:2];
-	
-	adSlot = [Timeslot spriteWithFile:@"graphics/AdSlot.png"];
-	[adSlot setPosition: CGPointMake(position.x, position.y-195)]; 
-	
-	
-	
-	[self addChild:background z:0];
-	[self addChild:dayLabel z:2];
-	[self addChild:eventSlot z:1];
-	[self addChild:adSlot z:1];
-	//		
-	//		NSLog(@"%f", eventSlot.boundingBox.origin.y);
-	//		NSLog(@"%f", adSlot.boundingBox.origin.y);
 
-}
 
 -(void) switchToEvent: (CurrentEvent*) newCurrentEvent
 {
-	// If event isn't empty
-	if(newCurrentEvent){
-		currentEvent = newCurrentEvent;
-		eventSlot.name = newCurrentEvent.name;
-		[eventSlot.label setString:self.eventSlot.name];
-	}
-	else{
-		currentEvent = nil;
-		[eventSlot.label setString:@"Event Slot"];
-	}
+
 }
--(void) test
-{
-	NSLog(@"Day test");
-}
+
 
 
 @end

@@ -9,34 +9,23 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+#import "Event.h"
+#import "CurrentEvent.h"
+
 #import "Personality.h"
-#import "EventSlot.h"
-#import "AdSlot.h"
 
 @interface Day : CCNode {
-    NSString *name;
-    Personality *personality;
-    
-	CCLabelTTF *dayLabel;
-    EventSlot *eventSlot;
-    AdSlot *adSlot;
-	CCSprite *background;
 	
-	CurrentEvent *currentEvent;
 	
 }
 
 @property (copy) NSString *name;
-@property (retain) Personality *personality;
-@property (assign) CCLabelTTF *dayLabel;
-@property (retain) CCSprite *background;
-@property (retain) EventSlot *eventSlot;
-@property (retain) AdSlot *adSlot;
-@property (retain) CurrentEvent *currentEvent;
 
--(id) initAtPosition: (CGPoint) position;
--(void) drawDay:(CGPoint) position;
+@property (retain) Event *event;
+
+
+-(id) initWithDayNumber:(int)dayNumber;
 -(void) switchToEvent: (CurrentEvent*) newEvent;
--(void) test;
+
 
 @end

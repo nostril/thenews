@@ -12,9 +12,9 @@
 
 @interface SlotListCell : UITableViewCell
 {
-	CurrentEvent *event;
+	
 	
 }
 
-@property (retain) CurrentEvent *event;
+@property (retain) CurrentEvent *currentEvent;
 @end

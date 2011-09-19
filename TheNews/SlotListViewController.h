@@ -11,8 +11,8 @@
 
 @interface SlotListViewController : UITableViewController
 {
-	NSArray *events;
-	SlotListTableView *table;
+	
+	
 }
 
 @property (retain) NSArray *events;

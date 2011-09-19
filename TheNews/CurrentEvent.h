@@ -1,5 +1,5 @@
 //
-//  event.h
+//  CurrentEvent.h
 //  test
 //
 //  Created by Noah Emmet on 8/25/11.
@@ -9,14 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface CurrentEvent : NSObject {
-    NSString *name;
-    NSString *headline, *description;
+#import "Event.h"
+
+@interface CurrentEvent : Event {
+
 }
 
-@property (copy) NSString *name, *headline, *description;
+//@property (copy) NSString *name, *headline, *description;
 
-+(id) loadEventsFromPlist;
+
 
 @end
 

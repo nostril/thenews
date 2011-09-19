@@ -9,14 +9,15 @@
 #import "CCNode.h"
 #import "Day.h"
 #import "PastEvent.h"
-@interface PastDay : CCNode
+@interface PastDay : Day
 {
 	int dayNumber;
 	
 	
 }
-@property (assign) NSString *name;
+
 @property (retain) PastEvent *pastEvent;
 
-- (id)initWithDay:(Day*)today;
+- (id)initWithDay:(Day*)day;
+
 @end

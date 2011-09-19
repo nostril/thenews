@@ -23,6 +23,7 @@
         // Custom initialization
 		events = [NSArray new];
 		events=eventsArray;
+		
     }
     return self;
 }
@@ -49,7 +50,7 @@
 	[self.view addSubview:table];
 	table.delegate=self;
 	table.dataSource=self;
-//	[table cellForRowAtIndexPath:[NSIndexPath indexPathWithIndex:0]];
+	
 	
 	
     // Uncomment the following line to preserve selection between presentations.
@@ -111,7 +112,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"SlotListCell";
 	
     // because dequeueReusable returns a UITableCell by default
     SlotListCell *cell = (SlotListCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -120,10 +121,12 @@
 		//Not sure what accessory type is
 //		cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    cell.event = [self.events objectAtIndex:indexPath.row];
+    cell.currentEvent = [self.events objectAtIndex:indexPath.row];
 	
 	
-	cell.textLabel.text = cell.event.name;
+	
+	 
+	cell.textLabel.text = cell.currentEvent.name;
     return cell;
 }
 
@@ -172,9 +175,10 @@
 {
 	
 	
-	NSLog(@"selected %i: %@", [[tableView indexPathForSelectedRow]row], [[(SlotListCell*)[self.tableView cellForRowAtIndexPath:indexPath] event ]name] );
+	NSLog(@"selected! %i: %@", [[tableView indexPathForSelectedRow]row], [[(SlotListCell*)[self.tableView cellForRowAtIndexPath:indexPath] event ]name] );
 	[slotDetail hideDetail];
 	[slotDetail showDetail:	[events objectAtIndex:[[tableView indexPathForSelectedRow]row]]];
+
 	
 	
     // Navigation logic may go here. Create and push another view controller.
