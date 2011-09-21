@@ -6,8 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#define UPCOMING_CELL_WIDTH 200
-#define PAST_CELL_WIDTH 160
+#define TODAY_CELL_WIDTH 260
+#define UPCOMING_CELL_WIDTH 240
+#define PAST_CELL_WIDTH 200
+#define WEEKEND_CELL_WIDTH 400
 
 #import "ScheduleViewController.h"
 #import "cocos2d.h"
@@ -50,11 +52,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	// Custom cell widths. Not sure about the +2>2
-	if((schedule.pastDays.count - indexPath.row + 2) > 2)
-		return PAST_CELL_WIDTH;
-	else 
+	// Custom cell widths
+	if(((schedule.pastDays.count+3) - indexPath.row) == 3)
+		return TODAY_CELL_WIDTH;
+	else if (((schedule.pastDays.count+3) - indexPath.row) <= 2)
 		return UPCOMING_CELL_WIDTH;
+	else 
+		return PAST_CELL_WIDTH;
 }
 
 -(void)swipeToNextDay:(UIGestureRecognizer *)gestureRecognizer {
@@ -187,7 +191,7 @@
 	
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
-	cell.textLabel.numberOfLines = 2;
+	cell.textLabel.numberOfLines = 3;
 	cell.textLabel.textColor = [UIColor blackColor];
 	
 	
@@ -196,31 +200,37 @@
 	
 	cell.textLabel.backgroundColor = [UIColor lightGrayColor];
 	
+	
+	cell.textLabel.text = [NSString stringWithFormat:@"%@ \nindex: %i", cell.day.name, indexPath.row];
+	
 	switch (schedule.pastDays.count - indexPath.row +2) {
+		
+			
+			// Weird bug when we get double mondays; probably a % problem. Might wanna add indexpath.row to name
 		// Today
 		case 2:
 			
 			cell.textLabel.backgroundColor = [UIColor whiteColor];
-			cell.textLabel.text = cell.day.name;
+//			cell.textLabel.text = [NSString stringWithFormat:@"%@ %i", cell.day.name, cell.day.dayNumber];
 			cell.textLabel.textColor = [UIColor blueColor];
 			break;
-			
+		// Tomorrow
 		case 1:
 			cell.textLabel.backgroundColor = [UIColor whiteColor];
-			cell.textLabel.text = cell.day.name;
+//			cell.textLabel.text = [NSString stringWithFormat:@"%@ %i", cell.day.name, cell.day.dayNumber];
 			break;
-			
+		// Day after tomorrow
 		case 0:
 			cell.textLabel.backgroundColor = [UIColor whiteColor];
-			cell.textLabel.text = cell.day.name;
+//			cell.textLabel.text = [NSString stringWithFormat:@"%@ %i", cell.day.name, cell.day.dayNumber];
 			break;
-			
+		// Yesterday
 		case -1:
-			cell.textLabel.text = cell.day.name;
+//			cell.textLabel.text = cell.day.name;
 			break;
-			
+		// all others
 		default:
-			cell.textLabel.text = cell.day.name;
+//			cell.textLabel.text = cell.day.name;
 			break;
 	}
 	

@@ -19,6 +19,7 @@
         // Initialization code
 		day = [[Day alloc] initWithDayNumber:dayNumber];
 		
+//		NSLog(@"daynumber: %i", dayNumber);
 		
 
     }

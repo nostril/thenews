@@ -18,8 +18,7 @@
 
 
 
-@synthesize name;
-@synthesize event;
+@synthesize name, event;
 
 
 
@@ -27,7 +26,8 @@
 {
 	if(self = [super init])
 	{
-
+		NSLog(@"dayNumber // 5: %i", (dayNumber % 5));
+		
 	
 		switch (dayNumber % 5)
 		{

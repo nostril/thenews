@@ -97,6 +97,7 @@
 	[scheduleViewController.tableView deselectRowAtIndexPath:[scheduleViewController.tableView indexPathForSelectedRow] animated:YES];
 	
 	//Put this stuff in -reloadData method?
+	[schedule goToNextDay];
 	[scheduleViewController.tableView reloadData];
 	[scheduleViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scheduleViewController.schedule.pastDays.count inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     return TRUE;    

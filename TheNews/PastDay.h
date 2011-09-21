@@ -11,7 +11,7 @@
 #import "PastEvent.h"
 @interface PastDay : Day
 {
-	int dayNumber;
+	
 	
 	
 }

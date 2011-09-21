@@ -21,6 +21,8 @@
 
 @property (copy) NSString *name;
 
+//@property (assign) int dayNumber;
+
 @property (retain) Event *event;
 
 
