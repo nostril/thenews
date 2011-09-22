@@ -13,9 +13,9 @@
 
 #import "CCUIViewWrapper.h"
 
-#import "SlotListViewController.h"
-#import "SlotListCell.h"
-#import "SlotDetail.h"
+#import "EventListViewController.h"
+#import "EventListCell.h"
+#import "EventDetail.h"
 
 #import "ScheduleViewController.h"
 
@@ -40,8 +40,8 @@
 	
 	
 	CCUIViewWrapper *slotListWrapper;
-	SlotListViewController *slotListViewController;
-	SlotDetail *slotDetail;
+	EventListViewController *slotListViewController;
+	EventDetail *eventDetail;
 	
 	CCUIViewWrapper *scheduleViewWrapper;
 	ScheduleViewController *scheduleViewController;
@@ -49,7 +49,7 @@
 }
 @property (assign) Schedule *schedule;
 
-@property (retain) SlotListViewController *slotListViewController;
+@property (retain) EventListViewController *slotListViewController;
 //@property (retain) UITableView *tableView;
 
 // New touch stuff

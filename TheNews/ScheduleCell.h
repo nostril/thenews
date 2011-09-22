@@ -17,6 +17,6 @@
 
 @property (retain) Day *day;
 
--(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier atDayNumber:(int)dayNumber;
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withDay:(Day*)newDay;
 -(void)setFrame:(CGRect)frame;
 @end

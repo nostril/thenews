@@ -12,14 +12,14 @@
 
 @synthesize day;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier atDayNumber:(int)dayNumber
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withDay:(Day*)newDay
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-		day = [[Day alloc] initWithDayNumber:dayNumber];
 		
-//		NSLog(@"daynumber: %i", dayNumber);
+		day = [Day new];
+		day = newDay;
 		
 
     }
@@ -33,7 +33,8 @@
     // Configure the view for the selected state
 }
 
-- (void)setFrame:(CGRect)frame {
+- (void)setFrame:(CGRect)frame 
+{
 //    frame.origin.x += inset;
 //    frame.size.width = 200;
     [super setFrame:frame];

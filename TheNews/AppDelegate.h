@@ -17,7 +17,8 @@
 	// my stuff
 	NSMutableArray *events;
 }
-
-@property (nonatomic, retain) UIWindow *window;
+// http://www.raywenderlich.com/4817/how-to-integrate-cocos2d-and-uikit
+@property (nonatomic, retain) IBOutlet UIWindow *window;
+//@property (nonatomic, retain) UIWindow *window;
 @property (retain) NSMutableArray *events;
 @end

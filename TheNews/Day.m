@@ -26,42 +26,52 @@
 {
 	if(self = [super init])
 	{
-		NSLog(@"dayNumber %i ./. 5 = %i", dayNumber, (dayNumber % 5));
 		
 	
-		switch (dayNumber % 5)
+		switch (dayNumber % 6)
 		{
 			case 0:
-				name = @"Monday";
+				name = @"Weekend";
 				break;
 			case 1:
-				name = @"Tuesday";
+				name = @"Monday";
 				break;
 			case 2:
-				name = @"Wednesday";
+				name = @"Tuesday";
 				break;
 			case 3:
-				name = @"Thursday";
+				name = @"Wednesday";
 				break;
 			case 4:
+				name = @"Thursday";
+				break;
+			case 5:
 				name = @"Friday";
 				break;
 			default:
+				
 				break;
 		}
-				
 	}
 	
-//	[self switchToEvent:nil];
+	
+	[self switchCoverageToEvent:nil];
 	
 	return self;
 		
 }
 
 
--(void) switchToEvent: (CurrentEvent*) newCurrentEvent
+-(void) switchCoverageToEvent: (CurrentEvent*) newCurrentEvent
 {
-
+	if(newCurrentEvent == nil)
+	{
+		event.name = @"Empty";
+		event.headline = @"Empty";
+		event.description = @"Empty";
+	}
+	else
+		event = newCurrentEvent;
 }
 
 

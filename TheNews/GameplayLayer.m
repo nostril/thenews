@@ -37,7 +37,7 @@
 		
 		
 		// Slot list -- side
-		slotListViewController = [[SlotListViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		slotListViewController = [[EventListViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		
 		slotListWrapper = [[CCUIViewWrapper alloc] initForUIView:slotListViewController.tableView];
 		
@@ -49,6 +49,9 @@
 		
 		scheduleViewWrapper = [[CCUIViewWrapper alloc] initForUIView:scheduleViewController.tableView];
 		
+
+		
+		
 		scheduleViewController.schedule = schedule;
 		
 		[self addChild: scheduleViewWrapper];
@@ -56,25 +59,35 @@
 		
 		
 		// Slot detail
-		slotDetail = [SlotDetail new];
-		slotListViewController.slotDetail = slotDetail;
-		slotDetail.position = CGPointMake(600, 550);
-		[self addChild:slotDetail z:4];
+		eventDetail = [EventDetail new];
+		slotListViewController.eventDetail = eventDetail;
+		eventDetail.position = CGPointMake(screenSize.width/2, 440);
+		[self addChild:eventDetail z:4];
+		
 		
 		
 		
 		// Timelapse stuff
-
 		
-//		player = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:@"graphics/cityTimeLapse.mp4"]];
-//		[player.view setFrame:CGRectMake(0, 0, 1024, 786)];  // player's frame must match parent's
-//		playerViewWrapper = [[CCUIViewWrapper alloc] initForUIView:player.view];
-//		[self addChild: playerViewWrapper z:-1];
+//		NSString *path = [[NSBundle mainBundle] pathForResource:@"graphics/cityTimeLapse" ofType:@"mp4"];
+//		NSURL *movieURL = [NSURL fileURLWithPath:path];
 //		
-//		[player play];
-
+//		player = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
+//		
+//        [[player moviePlayer] setMovieControlMode:MPMovieControlModeHidden];
+//		playerViewWrapper = [[CCUIViewWrapper alloc] initForUIView:player.view];
+//		[[[[CCDirector sharedDirector] openGLView] window] addSubview:player.view];
+//		
+//		player.view.frame = CGRectMake(-40, 272, 1024, 500);
+//		
+//		
+//		
+//		//		player.view.transform = CGAffineTransformRotate(CGAffineTransformMakeRotation(1.0), 
+//		player.view.transform = CGAffineTransformRotate(CGAffineTransformMakeRotation(0), (M_PI / 2.0));
+		
 		
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+//		[[[CCDirector sharedDirector] openGLView].superview addGestureRecognizer:gestureRecognizer];
     }
     
     return self;
@@ -83,14 +96,18 @@
 - (void)selectSpriteForTouch:(CGPoint)touchLocation 
 {
 	
-
+	
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {    
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     [self selectSpriteForTouch:touchLocation];
 	
-	[slotDetail hideDetail];
+	[[player moviePlayer] play];
+	
+//	[player play];
+	
+	[eventDetail hideDetail];
 //	NSLog([[scheduleViewController.tableView indexPathForSelectedRow] row]);
 	
 	//This isn't working

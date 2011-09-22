@@ -18,8 +18,9 @@
 		8645D9D214205F660091D34A /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645D9D014205F660091D34A /* ScheduleViewController.m */; };
 		8645D9D714205FAD0091D34A /* ScheduleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645D9D514205FAC0091D34A /* ScheduleTableView.m */; };
 		8645D9DB142077ED0091D34A /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645D9DA142077EB0091D34A /* Schedule.m */; };
+		866C0C7C142ADBFC005C962F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866C0C7B142ADBFC005C962F /* MainWindow.xib */; };
 		8682F8A1141D420700AE800F /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682F8A0141D420700AE800F /* BackgroundLayer.m */; };
-		8682F8A4141D68DE00AE800F /* SlotListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682F8A3141D68DE00AE800F /* SlotListTableView.m */; };
+		8682F8A4141D68DE00AE800F /* EventListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8682F8A3141D68DE00AE800F /* EventListTableView.m */; };
 		868CFA96140844F7001E868B /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 868CFA8A140844F7001E868B /* Day.m */; };
 		868CFA97140844F7001E868B /* CurrentEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 868CFA8C140844F7001E868B /* CurrentEvent.m */; };
 		868CFA99140844F7001E868B /* Personality.m in Sources */ = {isa = PBXBuildFile; fileRef = 868CFA90140844F7001E868B /* Personality.m */; };
@@ -144,12 +145,12 @@
 		86A0CF8A13E7DA95002763E5 /* GameplayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CF8913E7DA95002763E5 /* GameplayLayer.m */; };
 		86A0CF8D13E7DB86002763E5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CF8C13E7DB86002763E5 /* GameScene.m */; };
 		86A0CF9013EA03AE002763E5 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0CF8F13EA03AD002763E5 /* GameObject.m */; };
-		86AED6C214196C1900A42CF7 /* SlotListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AED6C114196C1900A42CF7 /* SlotListCell.m */; };
-		86AED6C8141D3D9700A42CF7 /* SlotDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AED6C7141D3D9600A42CF7 /* SlotDetail.m */; };
+		86AED6C214196C1900A42CF7 /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AED6C114196C1900A42CF7 /* EventListCell.m */; };
+		86AED6C8141D3D9700A42CF7 /* EventDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AED6C7141D3D9600A42CF7 /* EventDetail.m */; };
 		86E21C7D142702C0004F7271 /* ScheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E21C7C142702BF004F7271 /* ScheduleCell.m */; };
 		86E21C801427039F004F7271 /* UpcomingDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E21C7F1427039E004F7271 /* UpcomingDay.m */; };
 		86E21C831427046E004F7271 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E21C821427046D004F7271 /* Event.m */; };
-		86FE6B1414183696003DC81B /* SlotListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FE6B1214183696003DC81B /* SlotListViewController.m */; };
+		86FE6B1414183696003DC81B /* EventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FE6B1214183696003DC81B /* EventListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,10 +176,11 @@
 		8645D9D514205FAC0091D34A /* ScheduleTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableView.m; sourceTree = "<group>"; };
 		8645D9D9142077EA0091D34A /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
 		8645D9DA142077EB0091D34A /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		866C0C7B142ADBFC005C962F /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		8682F89F141D420700AE800F /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		8682F8A0141D420700AE800F /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayer.m; sourceTree = "<group>"; };
-		8682F8A2141D68DD00AE800F /* SlotListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotListTableView.h; sourceTree = "<group>"; };
-		8682F8A3141D68DE00AE800F /* SlotListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotListTableView.m; sourceTree = "<group>"; };
+		8682F8A2141D68DD00AE800F /* EventListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListTableView.h; sourceTree = "<group>"; };
+		8682F8A3141D68DE00AE800F /* EventListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListTableView.m; sourceTree = "<group>"; };
 		868CFA89140844F7001E868B /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
 		868CFA8A140844F7001E868B /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		868CFA8B140844F7001E868B /* CurrentEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentEvent.h; sourceTree = "<group>"; };
@@ -429,10 +431,10 @@
 		86A0CF8C13E7DB86002763E5 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		86A0CF8E13EA03AC002763E5 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		86A0CF8F13EA03AD002763E5 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
-		86AED6C014196C1900A42CF7 /* SlotListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotListCell.h; sourceTree = "<group>"; };
-		86AED6C114196C1900A42CF7 /* SlotListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotListCell.m; sourceTree = "<group>"; };
-		86AED6C6141D3D9600A42CF7 /* SlotDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotDetail.h; sourceTree = "<group>"; };
-		86AED6C7141D3D9600A42CF7 /* SlotDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotDetail.m; sourceTree = "<group>"; };
+		86AED6C014196C1900A42CF7 /* EventListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListCell.h; sourceTree = "<group>"; };
+		86AED6C114196C1900A42CF7 /* EventListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListCell.m; sourceTree = "<group>"; };
+		86AED6C6141D3D9600A42CF7 /* EventDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetail.h; sourceTree = "<group>"; };
+		86AED6C7141D3D9600A42CF7 /* EventDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetail.m; sourceTree = "<group>"; };
 		86B41E0413EA16E700B57E34 /* CommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocols.h; sourceTree = "<group>"; };
 		86B41E0613EA17E400B57E34 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		86E21C7B142702BF004F7271 /* ScheduleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleCell.h; sourceTree = "<group>"; };
@@ -441,8 +443,8 @@
 		86E21C7F1427039E004F7271 /* UpcomingDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingDay.m; sourceTree = "<group>"; };
 		86E21C811427046C004F7271 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		86E21C821427046D004F7271 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		86FE6B1114183696003DC81B /* SlotListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotListViewController.h; sourceTree = "<group>"; };
-		86FE6B1214183696003DC81B /* SlotListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotListViewController.m; sourceTree = "<group>"; };
+		86FE6B1114183696003DC81B /* EventListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListViewController.h; sourceTree = "<group>"; };
+		86FE6B1214183696003DC81B /* EventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,6 +542,7 @@
 				863E17BE141476D4007D9696 /* CCUIViewWrapper */,
 				86A0CDB113E7A07E002763E5 /* libs */,
 				86A0CEEA13E7A085002763E5 /* Supporting Files */,
+				866C0C7B142ADBFC005C962F /* MainWindow.xib */,
 			);
 			path = TheNews;
 			sourceTree = "<group>";
@@ -878,20 +881,10 @@
 		86A0CF9113EA03B3002763E5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				8645D9CF14205F660091D34A /* ScheduleViewController.h */,
-				8645D9D014205F660091D34A /* ScheduleViewController.m */,
-				8645D9D414205FAB0091D34A /* ScheduleTableView.h */,
-				8645D9D514205FAC0091D34A /* ScheduleTableView.m */,
-				86E21C7B142702BF004F7271 /* ScheduleCell.h */,
-				86E21C7C142702BF004F7271 /* ScheduleCell.m */,
-				86FE6B1114183696003DC81B /* SlotListViewController.h */,
-				86FE6B1214183696003DC81B /* SlotListViewController.m */,
-				8682F8A2141D68DD00AE800F /* SlotListTableView.h */,
-				8682F8A3141D68DE00AE800F /* SlotListTableView.m */,
-				86AED6C014196C1900A42CF7 /* SlotListCell.h */,
-				86AED6C114196C1900A42CF7 /* SlotListCell.m */,
-				86AED6C6141D3D9600A42CF7 /* SlotDetail.h */,
-				86AED6C7141D3D9600A42CF7 /* SlotDetail.m */,
+				86ED6C7F142BF220002A7586 /* Event List */,
+				86ED6C80142BF237002A7586 /* Schedule List */,
+				86AED6C6141D3D9600A42CF7 /* EventDetail.h */,
+				86AED6C7141D3D9600A42CF7 /* EventDetail.m */,
 				8645D9D9142077EA0091D34A /* Schedule.h */,
 				8645D9DA142077EB0091D34A /* Schedule.m */,
 				868CFA89140844F7001E868B /* Day.h */,
@@ -936,6 +929,32 @@
 				86B41E0613EA17E400B57E34 /* Constants.h */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		86ED6C7F142BF220002A7586 /* Event List */ = {
+			isa = PBXGroup;
+			children = (
+				86FE6B1114183696003DC81B /* EventListViewController.h */,
+				86FE6B1214183696003DC81B /* EventListViewController.m */,
+				8682F8A2141D68DD00AE800F /* EventListTableView.h */,
+				8682F8A3141D68DE00AE800F /* EventListTableView.m */,
+				86AED6C014196C1900A42CF7 /* EventListCell.h */,
+				86AED6C114196C1900A42CF7 /* EventListCell.m */,
+			);
+			name = "Event List";
+			sourceTree = "<group>";
+		};
+		86ED6C80142BF237002A7586 /* Schedule List */ = {
+			isa = PBXGroup;
+			children = (
+				8645D9CF14205F660091D34A /* ScheduleViewController.h */,
+				8645D9D014205F660091D34A /* ScheduleViewController.m */,
+				8645D9D414205FAB0091D34A /* ScheduleTableView.h */,
+				8645D9D514205FAC0091D34A /* ScheduleTableView.m */,
+				86E21C7B142702BF004F7271 /* ScheduleCell.h */,
+				86E21C7C142702BF004F7271 /* ScheduleCell.m */,
+			);
+			name = "Schedule List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -997,6 +1016,7 @@
 				868CFA9E14084504001E868B /* EventList.plist in Resources */,
 				868CFA9F14084504001E868B /* Personalities.plist in Resources */,
 				868CFAB014087F77001E868B /* graphics in Resources */,
+				866C0C7C142ADBFC005C962F /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1116,11 +1136,11 @@
 				863E188D1416F597007D9696 /* CCScrollView.m in Sources */,
 				863E188E1416F597007D9696 /* CCTableView.m in Sources */,
 				863E188F1416F597007D9696 /* CCTableViewCell.m in Sources */,
-				86FE6B1414183696003DC81B /* SlotListViewController.m in Sources */,
-				86AED6C214196C1900A42CF7 /* SlotListCell.m in Sources */,
-				86AED6C8141D3D9700A42CF7 /* SlotDetail.m in Sources */,
+				86FE6B1414183696003DC81B /* EventListViewController.m in Sources */,
+				86AED6C214196C1900A42CF7 /* EventListCell.m in Sources */,
+				86AED6C8141D3D9700A42CF7 /* EventDetail.m in Sources */,
 				8682F8A1141D420700AE800F /* BackgroundLayer.m in Sources */,
-				8682F8A4141D68DE00AE800F /* SlotListTableView.m in Sources */,
+				8682F8A4141D68DE00AE800F /* EventListTableView.m in Sources */,
 				8645D9CA14205B6D0091D34A /* PastDay.m in Sources */,
 				8645D9CE14205BC60091D34A /* PastEvent.m in Sources */,
 				8645D9D214205F660091D34A /* ScheduleViewController.m in Sources */,

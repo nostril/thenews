@@ -27,7 +27,7 @@
 
 
 -(id) initWithDayNumber:(int)dayNumber;
--(void) switchToEvent: (CurrentEvent*) newEvent;
+-(void) switchCoverageToEvent: (CurrentEvent*) newEvent;
 
 
 @end

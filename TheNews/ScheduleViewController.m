@@ -53,7 +53,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	// Custom cell widths
-	if(((schedule.days.count) - indexPath.row) == 3)
+	if ((indexPath.row % 6) == 0)
+		return WEEKEND_CELL_WIDTH;
+	else if(((schedule.days.count) - indexPath.row) == 3)
 		return TODAY_CELL_WIDTH;
 	else if (((schedule.days.count) - indexPath.row) <= 2)
 		return UPCOMING_CELL_WIDTH;
@@ -83,10 +85,86 @@
 			NSLog(@"swiped!");
 			[schedule advanceOneDay];
 			[self.tableView reloadData];
-			[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.days.count inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+			[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.days.count-2 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 		}
 	}
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+	
+    // because dequeueReusable returns a UITableCell by default
+    ScheduleCell *cell = (ScheduleCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[ScheduleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier withDay:[schedule.days objectAtIndex:indexPath.row]] autorelease];
+		
+		cell.textLabel.transform = CGAffineTransformMakeRotation( M_PI/2 );
+		//Not sure what accessory type is
+		//		cell.accessoryType = UITableViewCellAccessoryNone;
+		
+		
+		cell.day = [schedule.days objectAtIndex:indexPath.row];
+    }
+	
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	
+	cell.textLabel.numberOfLines = 3;
+	cell.textLabel.textColor = [UIColor blackColor];
+	
+	
+	cell.textLabel.textAlignment = UITextAlignmentCenter;
+	cell.textLabel.font = [UIFont fontWithName:@"Futura" size:26];
+	
+	cell.textLabel.backgroundColor = [UIColor lightGrayColor];
+	
+	cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@",[[schedule.days objectAtIndex:indexPath.row] name], [[[schedule.days objectAtIndex:indexPath.row] event]name]];
+	
+	switch (schedule.days.count - indexPath.row) {
+			
+			// Today
+		case 3:
+			cell.textLabel.textColor = [UIColor blueColor];
+			cell.textLabel.backgroundColor = [UIColor whiteColor];
+			break;
+			// Tomorrow
+		case 2:
+			cell.textLabel.textColor = [UIColor blackColor];
+			cell.textLabel.backgroundColor = [UIColor whiteColor];
+			
+			break;
+			// Day after tomorrow
+		case 1:
+			cell.textLabel.textColor = [UIColor blackColor];
+			cell.textLabel.backgroundColor = [UIColor whiteColor];
+			
+			break;
+			
+		default:
+			break;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//	[table scrollToRowAtIndexPath:(indexPath) atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+	
+    return cell;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -175,70 +253,6 @@
     return (schedule.days.count);
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-	
-    // because dequeueReusable returns a UITableCell by default
-    ScheduleCell *cell = (ScheduleCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[ScheduleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier atDayNumber:indexPath.row] autorelease];
-		
-		cell.textLabel.transform = CGAffineTransformMakeRotation( M_PI/2 );
-		//Not sure what accessory type is
-		//		cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-	
-	cell.selectionStyle = UITableViewCellSelectionStyleNone;
-	
-	cell.textLabel.numberOfLines = 3;
-	cell.textLabel.textColor = [UIColor blackColor];
-	
-	
-	cell.textLabel.textAlignment = UITextAlignmentCenter;
-	cell.textLabel.font = [UIFont fontWithName:@"Futura" size:26];
-	
-	cell.textLabel.backgroundColor = [UIColor lightGrayColor];
-	
-	
-	cell.textLabel.text = [NSString stringWithFormat:@"%@ \nindex: %i", cell.day.name, indexPath.row];
-	
-	switch (schedule.days.count - indexPath.row) {
-		
-			
-			// Weird bug when we get double mondays; probably a % problem. Might wanna add indexpath.row to name
-		// Today
-		case 2:
-			
-			cell.textLabel.backgroundColor = [UIColor whiteColor];
-//			cell.textLabel.text = [NSString stringWithFormat:@"%@ %i", cell.day.name, cell.day.dayNumber];
-			cell.textLabel.textColor = [UIColor blueColor];
-			break;
-		// Tomorrow
-		case 1:
-			cell.textLabel.backgroundColor = [UIColor whiteColor];
-//			cell.textLabel.text = [NSString stringWithFormat:@"%@ %i", cell.day.name, cell.day.dayNumber];
-			break;
-		// Day after tomorrow
-		case 0:
-			cell.textLabel.backgroundColor = [UIColor whiteColor];
-//			cell.textLabel.text = [NSString stringWithFormat:@"%@ %i", cell.day.name, cell.day.dayNumber];
-			break;
-		// Yesterday
-		case -1:
-//			cell.textLabel.text = cell.day.name;
-			break;
-		// all others
-		default:
-//			cell.textLabel.text = cell.day.name;
-			break;
-	}
-	
-	
-//	[table scrollToRowAtIndexPath:(indexPath) atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-
-    return cell;
-}
 
 /*
 // Override to support conditional editing of the table view.
