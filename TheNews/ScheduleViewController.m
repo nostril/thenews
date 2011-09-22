@@ -53,9 +53,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	// Custom cell widths
-	if(((schedule.pastDays.count+3) - indexPath.row) == 3)
+	if(((schedule.days.count) - indexPath.row) == 3)
 		return TODAY_CELL_WIDTH;
-	else if (((schedule.pastDays.count+3) - indexPath.row) <= 2)
+	else if (((schedule.days.count) - indexPath.row) <= 2)
 		return UPCOMING_CELL_WIDTH;
 	else 
 		return PAST_CELL_WIDTH;
@@ -81,9 +81,9 @@
 		if(y > h - reload_distance) {
 			
 			NSLog(@"swiped!");
-			[schedule goToNextDay];
+			[schedule advanceOneDay];
 			[self.tableView reloadData];
-			[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.pastDays.count inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+			[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.days.count inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 		}
 	}
 }
@@ -172,7 +172,7 @@
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
 	// The plus three is for today, tomorrow, and the dayAfterTomorrow
-    return (schedule.pastDays.count + 3);
+    return (schedule.days.count);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -203,7 +203,7 @@
 	
 	cell.textLabel.text = [NSString stringWithFormat:@"%@ \nindex: %i", cell.day.name, indexPath.row];
 	
-	switch (schedule.pastDays.count - indexPath.row +2) {
+	switch (schedule.days.count - indexPath.row) {
 		
 			
 			// Weird bug when we get double mondays; probably a % problem. Might wanna add indexpath.row to name

@@ -26,7 +26,7 @@
 {
 	if(self = [super init])
 	{
-		NSLog(@"dayNumber // 5: %i", (dayNumber % 5));
+		NSLog(@"dayNumber %i ./. 5 = %i", dayNumber, (dayNumber % 5));
 		
 	
 		switch (dayNumber % 5)
@@ -52,7 +52,7 @@
 				
 	}
 	
-	[self switchToEvent:nil];
+//	[self switchToEvent:nil];
 	
 	return self;
 		

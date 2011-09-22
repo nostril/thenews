@@ -15,13 +15,13 @@
 @interface Schedule : CCNode
 {
 	
-	
+	int dayNumber;
 	
 }
-@property (assign) int dayNumber;
-@property (retain) NSMutableArray *pastDays;
+//@property (assign) int dayNumber;
+@property (retain) NSMutableArray *days;
 @property (retain) UpcomingDay *today, *tomorrow, *dayAfterTomorrow;
 
--(void) goToNextDay;
+-(void) advanceOneDay;
 @end
 

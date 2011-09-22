@@ -10,23 +10,26 @@
 
 @implementation Schedule
 
-@synthesize pastDays, today, tomorrow, dayAfterTomorrow, dayNumber;
+@synthesize days, today, tomorrow, dayAfterTomorrow;
 
 - (id)init
 {
     self = [super init];
-    if (self) {
+    if (self)
+	{
+		
 		dayNumber = 0;
+		days = [NSMutableArray new];
 		
-		today = [[UpcomingDay alloc] initWithDayNumber:dayNumber];
-		dayNumber++;
-		tomorrow = [[UpcomingDay alloc] initWithDayNumber:dayNumber];
-		dayNumber++;
-		dayAfterTomorrow = [[UpcomingDay alloc] initWithDayNumber:dayNumber];
-		dayNumber++;
+		for(int startWithNDays = 4; startWithNDays > 0; startWithNDays--)
+		{
+			Day *day = [[Day alloc] initWithDayNumber:dayNumber];
+			[days addObject:day];
+			dayNumber++;
+		}
 		
 		
-		pastDays = [NSMutableArray new];
+		
 		
 		
 		
@@ -35,20 +38,16 @@
     return self;
 }
 
--(void) goToNextDay
+-(void) advanceOneDay
 {
-//	today.dayNumber = pastDays.count+3;
-	PastDay *pastDay = [[PastDay alloc] initWithDay:today];
-	[pastDays addObject:today];
-	
-//	today = tomorrow;
-//	tomorrow = dayAfterTomorrow;
-	
+
+	Day *day = [[Day alloc] initWithDayNumber:dayNumber];
+	[days addObject:day];
 	dayNumber++;
 	
-//	[today dealloc];
-	today = [today initWithDayNumber:dayNumber];
-	NSLog(@"day number total: %i",dayNumber);
+	
+	
+//	NSLog(@"day number total: %i",dayNumber);
 	
 }
 @end

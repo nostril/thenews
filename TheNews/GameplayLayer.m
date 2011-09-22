@@ -30,10 +30,10 @@
 		schedule = [Schedule new];
 		
 		
-		// Quick population
-		[schedule.today switchToEvent:nil];
-		[schedule.tomorrow switchToEvent:nil];
-		[schedule.dayAfterTomorrow switchToEvent:nil];
+//		// Quick population
+//		[schedule.today switchToEvent:nil];
+//		[schedule.tomorrow switchToEvent:nil];
+//		[schedule.dayAfterTomorrow switchToEvent:nil];
 		
 		
 		// Slot list -- side
@@ -97,9 +97,9 @@
 	[scheduleViewController.tableView deselectRowAtIndexPath:[scheduleViewController.tableView indexPathForSelectedRow] animated:YES];
 	
 	//Put this stuff in -reloadData method?
-	[schedule goToNextDay];
+	[schedule advanceOneDay];
 	[scheduleViewController.tableView reloadData];
-	[scheduleViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scheduleViewController.schedule.pastDays.count inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+	[scheduleViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scheduleViewController.schedule.days.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     return TRUE;    
 }
 
