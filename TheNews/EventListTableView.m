@@ -20,21 +20,6 @@
 }
 
 
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	touchStart = [[touches anyObject] locationInView:self];
-	NSLog(@"touch");
-//	MyAppDelegate* delegate = (MyAppDelegate*)[[[UIApplication sharedApplication] delegate];
-	
-	
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-	CGPoint point = [[touches anyObject] locationInView:self];
-	self.center = CGPointMake(self.center.x + point.x - touchStart.x, self.center.y + point.y - touchStart.y);
-	NSLog(@"touch moved");
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.

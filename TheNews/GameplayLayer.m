@@ -12,7 +12,7 @@
 
 @implementation GameplayLayer
 
-@synthesize schedule, slotListViewController;
+@synthesize schedule, eventListViewController;
 
 - (id)init
 {
@@ -30,18 +30,14 @@
 		schedule = [Schedule new];
 		
 		
-//		// Quick population
-//		[schedule.today switchToEvent:nil];
-//		[schedule.tomorrow switchToEvent:nil];
-//		[schedule.dayAfterTomorrow switchToEvent:nil];
 		
+		// event list -- side
+		eventListViewController = [[EventListViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		
-		// Slot list -- side
-		slotListViewController = [[EventListViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		eventListWrapper = [[CCUIViewWrapper alloc] initForUIView:eventListViewController.tableView];
 		
-		slotListWrapper = [[CCUIViewWrapper alloc] initForUIView:slotListViewController.tableView];
+		[self addChild: eventListWrapper];
 		
-		[self addChild: slotListWrapper];
 		
 		
 		// Schedule -- bottom, horizontal
@@ -49,21 +45,17 @@
 		
 		scheduleViewWrapper = [[CCUIViewWrapper alloc] initForUIView:scheduleViewController.tableView];
 		
-
-		
-		
 		scheduleViewController.schedule = schedule;
 		
 		[self addChild: scheduleViewWrapper];
 		
 		
 		
-		// Slot detail
+		// event detail
 		eventDetail = [EventDetail new];
-		slotListViewController.eventDetail = eventDetail;
+		eventListViewController.eventDetail = eventDetail;
 		eventDetail.position = CGPointMake(screenSize.width/2, 440);
 		[self addChild:eventDetail z:4];
-		
 		
 		
 		
@@ -85,13 +77,63 @@
 //		//		player.view.transform = CGAffineTransformRotate(CGAffineTransformMakeRotation(1.0), 
 //		player.view.transform = CGAffineTransformRotate(CGAffineTransformMakeRotation(0), (M_PI / 2.0));
 		
+
+		
+		
+		// Drag and drop
+		UIPanGestureRecognizer *dragTouch = [[UIPanGestureRecognizer alloc] 
+											 initWithTarget:self action:@selector(dragTouchCaptured:)]; 
+		
+		[[[CCDirector sharedDirector] openGLView].superview addGestureRecognizer:dragTouch];
+		
 		
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-//		[[[CCDirector sharedDirector] openGLView].superview addGestureRecognizer:gestureRecognizer];
+		
     }
     
     return self;
 }
+
+- (void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer
+{
+	if (recognizer.state == UIGestureRecognizerStateBegan)
+	{
+		NSLog(@"drag began") ;
+		
+		CGPoint dragEndLocation = [recognizer locationInView:(UIView*)eventListViewController.table];
+        NSIndexPath *dragEndIndexPath = [eventListViewController.table indexPathForRowAtPoint:dragEndLocation];
+        EventListCell* dragEndCell =(EventListCell*) [eventListViewController.table cellForRowAtIndexPath:dragEndIndexPath];
+		
+		[eventDetail showDetail:dragEndCell.currentEvent];
+		
+	}
+	else if (recognizer.state == UIGestureRecognizerStateChanged)
+	{
+		//		NSLog(@"drag changed") ;
+		CGPoint translation = [recognizer translationInView:recognizer.view];
+        translation = ccp(translation.x, -translation.y);
+//        [self panForTranslation:translation];
+        [recognizer setTranslation:CGPointZero inView:recognizer.view];
+		dragbutton.position = translation;
+	}
+	else if (recognizer.state == UIGestureRecognizerStateEnded)
+	{
+		NSLog(@"drag ended") ;
+		
+		CGPoint dragEndLocation = [recognizer locationInView:(UIView*)eventListViewController.table];
+        NSIndexPath *dragEndIndexPath = [eventListViewController.table indexPathForRowAtPoint:dragEndLocation];
+        EventListCell* dragEndCell =(EventListCell*) [eventListViewController.table cellForRowAtIndexPath:dragEndIndexPath];
+		
+		[eventDetail hideDetail];
+		
+		
+		dragEndCell.textLabel.textColor = [UIColor redColor];
+		[scheduleViewController.tableView reloadData];
+		NSLog(@"%@", dragEndCell.currentEvent.name);
+	}
+	
+}
+
 // New touch stuff
 - (void)selectSpriteForTouch:(CGPoint)touchLocation 
 {
@@ -103,20 +145,17 @@
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     [self selectSpriteForTouch:touchLocation];
 	
-	[[player moviePlayer] play];
+//	[[player moviePlayer] play];
 	
 //	[player play];
 	
 	[eventDetail hideDetail];
 //	NSLog([[scheduleViewController.tableView indexPathForSelectedRow] row]);
 	
-	//This isn't working
-	[scheduleViewController.tableView deselectRowAtIndexPath:[scheduleViewController.tableView indexPathForSelectedRow] animated:YES];
-	
 	//Put this stuff in -reloadData method?
 	[schedule advanceOneDay];
 	[scheduleViewController.tableView reloadData];
-	[scheduleViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scheduleViewController.schedule.days.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+	[scheduleViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scheduleViewController.schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     return TRUE;    
 }
 

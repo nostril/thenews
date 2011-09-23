@@ -19,6 +19,8 @@
 
 #import "ScheduleViewController.h"
 
+#import "CCVideoPlayer.h"
+
 #import "Schedule.h"
 #import "Day.h"
 #import "Personality.h"
@@ -38,22 +40,27 @@
 	NSArray *personalities;
 	UIButton *button;
 	
+	CCSprite *dragbutton;
 	
-	CCUIViewWrapper *slotListWrapper;
-	EventListViewController *slotListViewController;
+	CCUIViewWrapper *eventListWrapper;
+	EventListViewController *eventListViewController;
 	EventDetail *eventDetail;
 	
 	CCUIViewWrapper *scheduleViewWrapper;
 	ScheduleViewController *scheduleViewController;
 	
+	
+	
 }
 @property (assign) Schedule *schedule;
 
-@property (retain) EventListViewController *slotListViewController;
+@property (retain) EventListViewController *eventListViewController;
 //@property (retain) UITableView *tableView;
 
 // New touch stuff
 -(void)selectSpriteForTouch:(CGPoint)touchLocation;
 -(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;  
+- (void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer;
+
 
 @end

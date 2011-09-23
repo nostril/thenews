@@ -150,6 +150,9 @@
 		86E21C7D142702C0004F7271 /* ScheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E21C7C142702BF004F7271 /* ScheduleCell.m */; };
 		86E21C801427039F004F7271 /* UpcomingDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E21C7F1427039E004F7271 /* UpcomingDay.m */; };
 		86E21C831427046E004F7271 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E21C821427046D004F7271 /* Event.m */; };
+		86ED6CA1142C0572002A7586 /* CCVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ED6C94142C0572002A7586 /* CCVideoPlayer.m */; };
+		86ED6CA2142C0572002A7586 /* CCVideoPlayerImpliOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ED6C97142C0572002A7586 /* CCVideoPlayerImpliOS.m */; };
+		86ED6CA3142C0572002A7586 /* videoOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ED6C99142C0572002A7586 /* videoOverlayView.m */; };
 		86FE6B1414183696003DC81B /* EventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FE6B1214183696003DC81B /* EventListViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -443,6 +446,12 @@
 		86E21C7F1427039E004F7271 /* UpcomingDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingDay.m; sourceTree = "<group>"; };
 		86E21C811427046C004F7271 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		86E21C821427046D004F7271 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		86ED6C93142C0572002A7586 /* CCVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoPlayer.h; sourceTree = "<group>"; };
+		86ED6C94142C0572002A7586 /* CCVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoPlayer.m; sourceTree = "<group>"; };
+		86ED6C96142C0572002A7586 /* CCVideoPlayerImpliOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVideoPlayerImpliOS.h; sourceTree = "<group>"; };
+		86ED6C97142C0572002A7586 /* CCVideoPlayerImpliOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoPlayerImpliOS.m; sourceTree = "<group>"; };
+		86ED6C98142C0572002A7586 /* videoOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videoOverlayView.h; sourceTree = "<group>"; };
+		86ED6C99142C0572002A7586 /* videoOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = videoOverlayView.m; sourceTree = "<group>"; };
 		86FE6B1114183696003DC81B /* EventListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListViewController.h; sourceTree = "<group>"; };
 		86FE6B1214183696003DC81B /* EventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -529,6 +538,7 @@
 		86A0CD9C13E7A07E002763E5 /* TheNews */ = {
 			isa = PBXGroup;
 			children = (
+				86ED6C91142C0562002A7586 /* Cocos Extensions */,
 				86B41E0513EA16ED00B57E34 /* Constants */,
 				86A0CF9213EA03CF002763E5 /* Layers */,
 				86A0CF9113EA03B3002763E5 /* Classes */,
@@ -957,6 +967,35 @@
 			name = "Schedule List";
 			sourceTree = "<group>";
 		};
+		86ED6C91142C0562002A7586 /* Cocos Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				86ED6C92142C0572002A7586 /* CCVideoPlayer */,
+			);
+			name = "Cocos Extensions";
+			sourceTree = "<group>";
+		};
+		86ED6C92142C0572002A7586 /* CCVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				86ED6C93142C0572002A7586 /* CCVideoPlayer.h */,
+				86ED6C94142C0572002A7586 /* CCVideoPlayer.m */,
+				86ED6C95142C0572002A7586 /* iOS */,
+			);
+			path = CCVideoPlayer;
+			sourceTree = "<group>";
+		};
+		86ED6C95142C0572002A7586 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				86ED6C96142C0572002A7586 /* CCVideoPlayerImpliOS.h */,
+				86ED6C97142C0572002A7586 /* CCVideoPlayerImpliOS.m */,
+				86ED6C98142C0572002A7586 /* videoOverlayView.h */,
+				86ED6C99142C0572002A7586 /* videoOverlayView.m */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1149,6 +1188,9 @@
 				86E21C7D142702C0004F7271 /* ScheduleCell.m in Sources */,
 				86E21C801427039F004F7271 /* UpcomingDay.m in Sources */,
 				86E21C831427046E004F7271 /* Event.m in Sources */,
+				86ED6CA1142C0572002A7586 /* CCVideoPlayer.m in Sources */,
+				86ED6CA2142C0572002A7586 /* CCVideoPlayerImpliOS.m in Sources */,
+				86ED6CA3142C0572002A7586 /* videoOverlayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

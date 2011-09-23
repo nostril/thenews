@@ -24,7 +24,7 @@
 		dayNumber = 0;
 		days = [NSMutableArray new];
 		
-		for(int startWithNDays = 3; startWithNDays > 0; startWithNDays--)
+		for(int startWithNDays = 7; startWithNDays > 0; startWithNDays--)
 		{
 //			Day *day = [[Day alloc] initWithDayNumber:dayNumber];
 //			[days addObject:day];
@@ -53,7 +53,7 @@
 	[days addObject:[[Day alloc] initWithDayNumber:dayNumber]];
 	dayNumber++;
 	
-	NSLog(@"advance");
+//	NSLog(@"advance");
 	
 //	NSLog(@"day number total: %i",dayNumber);
 	

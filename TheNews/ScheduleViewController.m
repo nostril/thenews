@@ -79,13 +79,13 @@
 //		 NSLog(@"inset.bottom: %f", inset.bottom);   
 //		 NSLog(@"pos: %f of %f", y, h);
 		
-		float reload_distance = 100;
+		float reload_distance = 200;
 		if(y > h - reload_distance) {
 			
 			NSLog(@"swiped!");
 			[schedule advanceOneDay];
 			[self.tableView reloadData];
-			[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.days.count-2 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+			[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 		}
 	}
 }

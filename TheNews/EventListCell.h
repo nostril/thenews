@@ -17,4 +17,6 @@
 }
 
 @property (retain) CurrentEvent *currentEvent;
+
+
 @end

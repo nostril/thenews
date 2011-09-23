@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+
+@class CCSprite;
+
 @class EventListTableView, EventDetail;
+
+
+
+
+
 
 @interface EventListViewController : UITableViewController
 {
+	
+//	CCSprite *dragbutton;
 	
 	
 }
@@ -18,8 +28,11 @@
 @property (retain) NSArray *events;
 @property (retain) EventListTableView *table;
 @property (retain) EventDetail *eventDetail;
-@property (assign) CGPoint *touchStart;
+
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+
+//- (void)dragTouchCaptured:(UIPanGestureRecognizer *)recognizer;
+
 @end

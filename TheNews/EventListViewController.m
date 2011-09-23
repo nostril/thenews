@@ -53,24 +53,59 @@
 	
 	CGAffineTransform trans = self.view.transform; // get current transform (i.e. portrait)
 	trans = CGAffineTransformRotate(trans, (M_PI / -2.0)); // rotate 90 degrees to go landscape
-	self.view.transform = trans; // set current transform (landscape)
-
-	
+	self.view.transform = trans;
 	self.view.frame = CGRectMake(10, 0, 1014, 120);
-
+	
 	
 	[self.view addSubview:table];
 	table.delegate=self;
 	table.dataSource=self;
+
 	
 	
-	
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
+
+
+//- (void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer
+//{
+//	if (recognizer.state == UIGestureRecognizerStateBegan)
+//	{
+//		NSLog(@"drag began") ;
+//		dragbutton = [CCSprite spriteWithFile:@"graphics/Button.png"];
+//		
+//		[dragbutton setPosition: CGPointMake(400, 400)];
+//		
+////		[self addChild:dragbutton z:0 tag:0];
+////		CGPoint touchLocation = [recognizer locationInView:recognizer.view];
+////        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+////        touchLocation = [self convertToNodeSpace:touchLocation];                
+////        [self selectSpriteForTouch:touchLocation];
+//
+//	}
+//	else if (recognizer.state == UIGestureRecognizerStateChanged)
+//	{
+////		NSLog(@"drag changed") ;
+//		CGPoint translation = [recognizer translationInView:recognizer.view];
+//        translation = ccp(translation.x, -translation.y);
+////        [self panForTranslation:translation];
+//        [recognizer setTranslation:CGPointZero inView:recognizer.view];
+////		dragbutton.position = translation;
+//	}
+//	else if (recognizer.state == UIGestureRecognizerStateEnded)
+//	{
+//		NSLog(@"drag ended") ;
+//		
+//		CGPoint swipeLocation = [recognizer locationInView:table];
+//        NSIndexPath *swipedIndexPath = [table indexPathForRowAtPoint:swipeLocation];
+//        UITableViewCell* swipedCell = [table cellForRowAtIndexPath:swipedIndexPath];
+//		
+//		swipedCell.textLabel.textColor = [UIColor redColor];
+//		[table reloadData];
+////		NSLog(@"%@", swipedCell.currentEvent.name);
+//	}
+//	
+//}
 
 - (void)viewDidUnload
 {
@@ -201,7 +236,7 @@
 	
 //	NSLog(@"selected! %i: %@", [[tableView indexPathForSelectedRow]row], [[(SlotListCell*)[self.tableView cellForRowAtIndexPath:indexPath] event ]name] );
 	[eventDetail hideDetail];
-	[eventDetail showDetail:	[events objectAtIndex:[[tableView indexPathForSelectedRow]row]]];
+	[eventDetail showDetail: [events objectAtIndex:[[tableView indexPathForSelectedRow]row]]];
 
 	
 	
