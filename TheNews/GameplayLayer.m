@@ -87,6 +87,11 @@
 		
 		
 		// Drag and drop
+		draggedEvent = [CurrentEvent new];
+		draggedSprite = [CCSprite spriteWithFile:@"graphics/Button.png"];
+		
+		[self addChild:draggedSprite z:5];
+		
 //		UIPanGestureRecognizer *dragTouch = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragTouchCaptured:)]; 
 		
 		
@@ -99,74 +104,43 @@
     
     return self;
 }
-- (void)viewDidLoad
+
+-(void)BeginDraggingEvent:(CurrentEvent*)event
 {
-	NSLog(@"works!");
+	draggedEvent = event;
+	
+	draggedSprite.position = CGPointMake(0, 0);
+	
 	
 }
--(void) test
+-(void)isDraggingAtPoint:(CGPoint)dragPoint
+{
+	draggedSprite.position = dragPoint;
+	
+}
+-(void)EndDraggingEvent:(UIPanGestureRecognizer*)recognizer
 {
 	
-	NSLog(@"test!");
+	CGPoint dragEndPoint = [recognizer locationInView:scheduleViewController.tableView];
+	
+	// This is to compensate for the scrolling of the schedule view. But it's not working
+	dragEndPoint.y += scheduleViewController.tableView.contentOffset.y;
+	NSLog(@"%f, %f", scheduleViewController.tableView.contentOffset.x, scheduleViewController.tableView.contentOffset.y);
+	
+	
+	NSIndexPath *dragdroppedIndexPath = [scheduleViewController.tableView indexPathForRowAtPoint:dragEndPoint];
+	ScheduleCell* dragdroppedCell =(ScheduleCell*) [scheduleViewController.tableView cellForRowAtIndexPath:dragdroppedIndexPath];
+	
+	[dragdroppedCell.day switchCoverageToEvent:draggedEvent];
+//	draggedEvent = nil;
+	[scheduleViewController.tableView reloadData];
+	
+//	[self removeChild:draggedSprite cleanup:FALSE];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	NSLog(@"did select delegate");
-	
-}
 
-//- (void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer
-//{
-////	NSLog(@"gameplay layer");
-//	
-//	if (recognizer.state == UIGestureRecognizerStateBegan)
-//	{
-//		
-//		NSLog(@"drag began layer") ;
-//		
-////		CGPoint dragBeganLocation = [recognizer locationInView:(UIView*)eventListViewController.table];
-////        NSIndexPath *dragBeganIndexPath = [eventListViewController.table indexPathForRowAtPoint:dragBeganLocation];
-//		
-//		CGPoint location = [recognizer locationInView:(UITableView*) eventListViewController.table]; //not self.view
-//		NSLog(@"(%f, %f)", location.x, location.y);
-//		NSIndexPath *selectedIndexPath = [eventListViewController.table indexPathForRowAtPoint:location];
-//		
-//        EventListCell* dragBeganCell =(EventListCell*) [eventListViewController.table cellForRowAtIndexPath:selectedIndexPath];
-//		
-//		NSLog(@"%@", dragBeganCell.currentEvent.name);
-//		
-//		[eventDetail showDetail:dragBeganCell.currentEvent];
-//		
-//	}
-//	else if (recognizer.state == UIGestureRecognizerStateChanged)
-//	{
-//
-//		
-//		//		NSLog(@"drag changed") ;
-//		CGPoint translation = [recognizer translationInView:recognizer.view];
-//        translation = ccp(translation.x, -translation.y);
-////        [self panForTranslation:translation];
-//        [recognizer setTranslation:CGPointZero inView:recognizer.view];
-//		dragbutton.position = translation;
-//	}
-//	else if (recognizer.state == UIGestureRecognizerStateEnded)
-//	{
-//		NSLog(@"drag ended layer") ;
-//		
-//		CGPoint dragEndLocation = [recognizer locationInView:(UIView*)eventListViewController.table];
-//        NSIndexPath *dragEndIndexPath = [eventListViewController.table indexPathForRowAtPoint:dragEndLocation];
-//        EventListCell* dragEndCell =(EventListCell*) [eventListViewController.table cellForRowAtIndexPath:dragEndIndexPath];
-//		
-//		[eventDetail hideDetail];
-//		
-//		
-//		dragEndCell.textLabel.textColor = [UIColor redColor];
-//		[scheduleViewController.tableView reloadData];
-//		NSLog(@"%@", dragEndCell.currentEvent.name);
-//	}
-//	
-//}
+
+
 
 // New touch stuff
 - (void)selectSpriteForTouch:(CGPoint)touchLocation 

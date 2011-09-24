@@ -10,14 +10,13 @@
 
 @class CCSprite;
 
-@class EventListTableView, EventDetail;
+@class EventListTableView, EventDetail, CurrentEvent;
 
 
 @protocol EventListViewControllerDelegate <NSObject>;
--(void)viewDidLoad;
--(void)test;
--(void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer;
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+-(void)BeginDraggingEvent:(CurrentEvent*)event;
+-(void)isDraggingAtPoint:(CGPoint)dragPoint;
+-(void)EndDraggingEvent:(UIPanGestureRecognizer*)recognizer;
 @end
 
 
@@ -28,7 +27,7 @@
 	
 //	CCSprite *dragbutton;
 	
-	
+	CurrentEvent* draggedEvent;
 }
 
 @property (nonatomic, assign) id <EventListViewControllerDelegate> delegate;

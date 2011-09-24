@@ -17,7 +17,7 @@
 
 @implementation ScheduleViewController
 
-@synthesize schedule;
+@synthesize schedule, table;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

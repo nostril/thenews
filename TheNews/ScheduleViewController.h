@@ -14,10 +14,12 @@
 
 @interface ScheduleViewController : UITableViewController 
 {
-	ScheduleTableView *table;
+	
 	
 }
 @property (retain) Schedule *schedule;
+
+@property (retain) ScheduleTableView *table;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 -(void)swipeToNextDay:(UIGestureRecognizer *)gestureRecognizer;

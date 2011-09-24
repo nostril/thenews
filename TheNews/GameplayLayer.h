@@ -32,10 +32,8 @@
 	MPMoviePlayerController *player;
 	CCUIViewWrapper *playerViewWrapper;
 	
-//	Week *thisWeek;
-	// New touch stuff
 	CCSprite * background;
-	CCSprite * selSprite;
+	
 	NSArray *currentEvents;
 	NSArray *personalities;
 	UIButton *button;
@@ -50,6 +48,8 @@
 	ScheduleViewController *scheduleViewController;
 	
 	
+	CurrentEvent *draggedEvent;
+	CCSprite *draggedSprite;
 	
 }
 @property (assign) Schedule *schedule;

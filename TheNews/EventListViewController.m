@@ -21,7 +21,7 @@
     self = [super initWithStyle:style];
     if (self) {
 		
-		
+		draggedEvent = [CurrentEvent new];
     }
     return self;
 }
@@ -74,38 +74,37 @@
 {
 	if (recognizer.state == UIGestureRecognizerStateBegan)
 	{
+		CGPoint dragBeginLocation = [recognizer locationInView:self.table];
 		
-		NSLog(@"drag began controller") ;
-		[delegate test];
+        NSIndexPath *dragBeginIndexPath = [self.tableView indexPathForRowAtPoint:dragBeginLocation];
+        EventListCell* dragBeginCell =(EventListCell*) [self.tableView cellForRowAtIndexPath:dragBeginIndexPath];
 		
 		
-		CGPoint dragEndLocation = [recognizer locationInView:self.table];
-        NSIndexPath *dragEndIndexPath = [self.tableView indexPathForRowAtPoint:dragEndLocation];
-        EventListCell* dragEndCell =(EventListCell*) [self.tableView cellForRowAtIndexPath:dragEndIndexPath];
-		NSLog(@"%@",dragEndCell.currentEvent.name);
-		
+		draggedEvent=dragBeginCell.currentEvent;
+		if(draggedEvent)
+			[delegate BeginDraggingEvent:draggedEvent];
 
 	}
 	else if (recognizer.state == UIGestureRecognizerStateChanged)
 	{
-//		NSLog(@"drag changed") ;
-//		CGPoint translation = [recognizer translationInView:recognizer.view];
-//        translation = ccp(translation.x, -translation.y);
-//        [self panForTranslation:translation];
-//        [recognizer setTranslation:CGPointZero inView:recognizer.view];
-//		dragbutton.position = translation;
+		CGPoint dragPoint = [recognizer locationInView:[CCDirector sharedDirector].openGLView];
+		//		dragPoint = [self convertToWorldSpace:dragPoint];
+		//		dragPoint.x = -(dragPoint.x);
+		dragPoint.y = [[CCDirector sharedDirector]winSize].height - dragPoint.y;
+		
+		if(draggedEvent)
+			[delegate isDraggingAtPoint:dragPoint];
+		
 	}
 	else if (recognizer.state == UIGestureRecognizerStateEnded)
 	{
-		NSLog(@"drag ended controller") ;
+		CGPoint dragPoint = [recognizer locationInView:[CCDirector sharedDirector].openGLView];
+		dragPoint.y = [[CCDirector sharedDirector]winSize].height - dragPoint.y;
 		
-//		CGPoint swipeLocation = [recognizer locationInView:table];
-//        NSIndexPath *swipedIndexPath = [table indexPathForRowAtPoint:swipeLocation];
-//        UITableViewCell* swipedCell = [table cellForRowAtIndexPath:swipedIndexPath];
+		[delegate EndDraggingEvent:recognizer];
 		
-//		swipedCell.textLabel.textColor = [UIColor redColor];
-//		[table reloadData];
-//		NSLog(@"%@", swipedCell.currentEvent.name);
+		draggedEvent = nil;
+		
 	}
 	
 }
