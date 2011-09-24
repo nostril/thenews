@@ -134,8 +134,11 @@
 	NSIndexPath *dragdroppedIndexPath = [scheduleViewController.tableView indexPathForRowAtPoint:dragEndPoint];
 	ScheduleCell* dragdroppedCell =(ScheduleCell*) [scheduleViewController.tableView cellForRowAtIndexPath:dragdroppedIndexPath];
 	
-	[dragdroppedCell.day switchCoverageToEvent:draggedEvent];
-//	draggedEvent = nil;
+	// Temporary check to see if we dragged onto current day
+	if(dragdroppedIndexPath.row >= (scheduleViewController.schedule.days.count - 3))
+		[dragdroppedCell.day switchCoverageToEvent:draggedEvent];
+	
+	
 	[scheduleViewController.tableView reloadData];
 	
 //	[self removeChild:draggedSprite cleanup:FALSE];

@@ -255,7 +255,6 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-	// The plus three is for today, tomorrow, and the dayAfterTomorrow
     return (schedule.days.count);
 }
 

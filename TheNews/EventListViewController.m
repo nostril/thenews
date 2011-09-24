@@ -72,7 +72,8 @@
 
 - (void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer
 {
-	// Eventually this will have to detect if user tapped on event paper
+	// Eventually this will have to detect if user tapped on event paper. 
+	
 	if (recognizer.state == UIGestureRecognizerStateBegan)
 	{
 		CGPoint dragBeginLocation = [recognizer locationInView:self.table];
@@ -101,7 +102,8 @@
 		CGPoint dragPoint = [recognizer locationInView:[CCDirector sharedDirector].openGLView];
 		dragPoint.y = [[CCDirector sharedDirector]winSize].height - dragPoint.y;
 		
-		[delegate EndDraggingEvent:recognizer];
+		if(draggedEvent)
+			[delegate EndDraggingEvent:recognizer];
 		
 		draggedEvent = nil;
 		
@@ -165,7 +167,8 @@
 	
     // because dequeueReusable returns a UITableCell by default
     EventListCell *cell = (EventListCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    if (cell == nil) 
+	{
         cell = [[[EventListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		//Not sure what accessory type is
 //		cell.accessoryType = UITableViewCellAccessoryNone;
