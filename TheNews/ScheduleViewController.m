@@ -17,7 +17,7 @@
 
 @implementation ScheduleViewController
 
-@synthesize schedule, table;
+@synthesize schedule, table, eventDetail;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +32,7 @@
 
 		CGSize screenSize = [CCDirector sharedDirector].winSize;
 		
+		// This isn't getting used... maybe need to rename to tableView to override
 		table = [ScheduleTableView new];
 		
 		[super viewDidLoad];
@@ -118,7 +119,12 @@
 	
 	cell.textLabel.backgroundColor = [UIColor lightGrayColor];
 	
-	cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@",[[schedule.days objectAtIndex:indexPath.row] name], [[[schedule.days objectAtIndex:indexPath.row] event]name]];
+	// If this has an event
+	if([[schedule.days objectAtIndex:indexPath.row] event])
+		cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@",[[schedule.days objectAtIndex:indexPath.row] name], [[[schedule.days objectAtIndex:indexPath.row] event]name]];
+	else
+		cell.textLabel.text = [NSString stringWithFormat:@"%@\nNo Event",[[schedule.days objectAtIndex:indexPath.row] name]];
+
 	
 	switch (schedule.days.count - indexPath.row) {
 			
@@ -297,14 +303,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    
+	
 }
 
 @end

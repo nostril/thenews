@@ -2,21 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>000</key>
-	<dict>
-		<key>name</key>
-		<string>Empty</string>
-		<key>description</key>
-		<string>Empty Description</string>
-		<key>headline</key>
-		<string>Empty Headline</string>
-		<key>bully</key>
-		<integer>3</integer>
-		<key>lie</key>
-		<integer>4</integer>
-		<key>humiliate</key>
-		<integer>8</integer>
-	</dict>
 	<key>001</key>
 	<dict>
 		<key>name</key>

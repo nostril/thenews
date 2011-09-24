@@ -72,6 +72,7 @@
 
 - (void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer
 {
+	// Eventually this will have to detect if user tapped on event paper
 	if (recognizer.state == UIGestureRecognizerStateBegan)
 	{
 		CGPoint dragBeginLocation = [recognizer locationInView:self.table];
@@ -88,8 +89,7 @@
 	else if (recognizer.state == UIGestureRecognizerStateChanged)
 	{
 		CGPoint dragPoint = [recognizer locationInView:[CCDirector sharedDirector].openGLView];
-		//		dragPoint = [self convertToWorldSpace:dragPoint];
-		//		dragPoint.x = -(dragPoint.x);
+		
 		dragPoint.y = [[CCDirector sharedDirector]winSize].height - dragPoint.y;
 		
 		if(draggedEvent)

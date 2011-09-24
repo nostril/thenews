@@ -12,14 +12,17 @@
 #import "ScheduleCell.h"
 #import "Schedule.h"
 
+#import "EventDetail.h"
+
 @interface ScheduleViewController : UITableViewController 
 {
 	
 	
 }
 @property (retain) Schedule *schedule;
-
 @property (retain) ScheduleTableView *table;
+
+@property (retain) EventDetail *eventDetail;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 -(void)swipeToNextDay:(UIGestureRecognizer *)gestureRecognizer;

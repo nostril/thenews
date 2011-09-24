@@ -37,7 +37,7 @@
 		eventListViewController = [[EventListViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		
 		eventListViewController.delegate = self;
-		
+		eventListViewController.tableView.scrollEnabled = NO;
 		
 		eventListWrapper = [[CCUIViewWrapper alloc] initForUIView:eventListViewController.tableView];
 		
@@ -111,6 +111,9 @@
 	
 	draggedSprite.position = CGPointMake(0, 0);
 	
+	[eventDetail hideDetail];
+	[eventDetail showDetail:event];
+	
 	
 }
 -(void)isDraggingAtPoint:(CGPoint)dragPoint
@@ -123,8 +126,8 @@
 	
 	CGPoint dragEndPoint = [recognizer locationInView:scheduleViewController.tableView];
 	
-	// This is to compensate for the scrolling of the schedule view. But it's not working
-	dragEndPoint.y += scheduleViewController.tableView.contentOffset.y;
+	// This is to compensate for the scrolling of the schedule view. But it's not working. Probably because it results in a point off screen. Orrrr.... maybe it is working?
+//	dragEndPoint.y += scheduleViewController.tableView.contentOffset.y;
 	NSLog(@"%f, %f", scheduleViewController.tableView.contentOffset.x, scheduleViewController.tableView.contentOffset.y);
 	
 	
@@ -136,6 +139,8 @@
 	[scheduleViewController.tableView reloadData];
 	
 //	[self removeChild:draggedSprite cleanup:FALSE];
+	
+	[eventDetail hideDetail];
 }
 
 
@@ -160,10 +165,13 @@
 	[eventDetail hideDetail];
 //	NSLog([[scheduleViewController.tableView indexPathForSelectedRow] row]);
 	
+	// This isn't being called
+	[scheduleViewController.table deselectRowAtIndexPath:[scheduleViewController.table indexPathForSelectedRow] animated:TRUE];
+	
 	//Put this stuff in -reloadData method?
-	[schedule advanceOneDay];
-	[scheduleViewController.tableView reloadData];
-	[scheduleViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scheduleViewController.schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//	[schedule advanceOneDay];
+//	[scheduleViewController.tableView reloadData];
+//	[scheduleViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scheduleViewController.schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     return TRUE;    
 }
 
