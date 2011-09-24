@@ -10,6 +10,13 @@
 
 #import "CurrentEvent.h"
 
+@protocol EventListCellDelegate <NSObject>;
+-(void)viewDidLoad;
+-(void)test;
+-(void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer;
+
+@end
+
 @interface EventListCell : UITableViewCell
 {
 	
@@ -18,5 +25,6 @@
 
 @property (retain) CurrentEvent *currentEvent;
 
+@property (nonatomic, assign) id <EventListCellDelegate> delegate;
 
 @end

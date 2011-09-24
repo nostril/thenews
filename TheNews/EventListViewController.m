@@ -14,15 +14,13 @@
 
 @implementation EventListViewController
 
-@synthesize events, table, eventDetail;
+@synthesize events, table, eventDetail, delegate;
 
-- (id)initWithStyle:(UITableViewStyle)style andArray:(NSArray*)eventsArray
+- (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
-		events = [NSArray new];
-		events=eventsArray;
+		
 		
     }
     return self;
@@ -43,6 +41,7 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -61,51 +60,55 @@
 	table.delegate=self;
 	table.dataSource=self;
 
+	UIPanGestureRecognizer *dragTouch = [[UIPanGestureRecognizer alloc] 
+										 initWithTarget:self action:@selector(dragTouchCaptured:)]; 
 	
+	[[[CCDirector sharedDirector] openGLView].superview addGestureRecognizer:dragTouch];
+
 	
 
 }
 
 
-//- (void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer
-//{
-//	if (recognizer.state == UIGestureRecognizerStateBegan)
-//	{
-//		NSLog(@"drag began") ;
-//		dragbutton = [CCSprite spriteWithFile:@"graphics/Button.png"];
-//		
-//		[dragbutton setPosition: CGPointMake(400, 400)];
-//		
-////		[self addChild:dragbutton z:0 tag:0];
-////		CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-////        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-////        touchLocation = [self convertToNodeSpace:touchLocation];                
-////        [self selectSpriteForTouch:touchLocation];
-//
-//	}
-//	else if (recognizer.state == UIGestureRecognizerStateChanged)
-//	{
-////		NSLog(@"drag changed") ;
+- (void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer
+{
+	if (recognizer.state == UIGestureRecognizerStateBegan)
+	{
+		
+		NSLog(@"drag began controller") ;
+		[delegate test];
+		
+		
+		CGPoint dragEndLocation = [recognizer locationInView:self.table];
+        NSIndexPath *dragEndIndexPath = [self.tableView indexPathForRowAtPoint:dragEndLocation];
+        EventListCell* dragEndCell =(EventListCell*) [self.tableView cellForRowAtIndexPath:dragEndIndexPath];
+		NSLog(@"%@",dragEndCell.currentEvent.name);
+		
+
+	}
+	else if (recognizer.state == UIGestureRecognizerStateChanged)
+	{
+//		NSLog(@"drag changed") ;
 //		CGPoint translation = [recognizer translationInView:recognizer.view];
 //        translation = ccp(translation.x, -translation.y);
-////        [self panForTranslation:translation];
+//        [self panForTranslation:translation];
 //        [recognizer setTranslation:CGPointZero inView:recognizer.view];
-////		dragbutton.position = translation;
-//	}
-//	else if (recognizer.state == UIGestureRecognizerStateEnded)
-//	{
-//		NSLog(@"drag ended") ;
-//		
+//		dragbutton.position = translation;
+	}
+	else if (recognizer.state == UIGestureRecognizerStateEnded)
+	{
+		NSLog(@"drag ended controller") ;
+		
 //		CGPoint swipeLocation = [recognizer locationInView:table];
 //        NSIndexPath *swipedIndexPath = [table indexPathForRowAtPoint:swipeLocation];
 //        UITableViewCell* swipedCell = [table cellForRowAtIndexPath:swipedIndexPath];
-//		
+		
 //		swipedCell.textLabel.textColor = [UIColor redColor];
 //		[table reloadData];
-////		NSLog(@"%@", swipedCell.currentEvent.name);
-//	}
-//	
-//}
+//		NSLog(@"%@", swipedCell.currentEvent.name);
+	}
+	
+}
 
 - (void)viewDidUnload
 {
@@ -189,44 +192,6 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

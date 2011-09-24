@@ -10,7 +10,7 @@
 
 @implementation EventListCell
 
-@synthesize currentEvent;
+@synthesize currentEvent, delegate;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

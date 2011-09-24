@@ -27,7 +27,7 @@
 #import "CurrentEvent.h"
 #import "AvailableEvents.h"
 
-@interface GameplayLayer : CCLayer
+@interface GameplayLayer : CCLayer <EventListViewControllerDelegate>
 {
 	MPMoviePlayerController *player;
 	CCUIViewWrapper *playerViewWrapper;
@@ -60,7 +60,7 @@
 // New touch stuff
 -(void)selectSpriteForTouch:(CGPoint)touchLocation;
 -(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;  
-- (void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer;
+//- (void)dragTouchCaptured:(UIPanGestureRecognizer*)recognizer;
 
 
 @end
