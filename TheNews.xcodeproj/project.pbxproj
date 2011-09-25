@@ -922,10 +922,10 @@
 		86A0CF9213EA03CF002763E5 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
-				86A0CF8813E7DA94002763E5 /* GameplayLayer.h */,
-				86A0CF8913E7DA95002763E5 /* GameplayLayer.m */,
 				8682F89F141D420700AE800F /* BackgroundLayer.h */,
 				8682F8A0141D420700AE800F /* BackgroundLayer.m */,
+				86A0CF8813E7DA94002763E5 /* GameplayLayer.h */,
+				86A0CF8913E7DA95002763E5 /* GameplayLayer.m */,
 				86A0CF8B13E7DB86002763E5 /* GameScene.h */,
 				86A0CF8C13E7DB86002763E5 /* GameScene.m */,
 			);

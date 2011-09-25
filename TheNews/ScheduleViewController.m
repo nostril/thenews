@@ -83,22 +83,10 @@
 		float reload_distance = 200;
 		if(y > h - reload_distance) {
 			
-//			NSLog(@"swiped!");
+			NSLog(@"swiped!");
 			[schedule advanceOneDay];
 			[self.tableView reloadData];
-			
-			NSLog(@"%i", (schedule.days.count-1) % 6);
-			
-			// Scrolls differently if there's a weekend
-			if(((schedule.days.count-1) % 6) == 0)
-				[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-			// Friday
-			if(((schedule.days.count-1) % 6) == 1)
-				[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-			
-			// Not a weekend
-			else
-				[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+			[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 		}
 	}
 }
@@ -129,7 +117,6 @@
 	cell.textLabel.textAlignment = UITextAlignmentCenter;
 	cell.textLabel.font = [UIFont fontWithName:@"Futura" size:26];
 	
-
 	cell.textLabel.backgroundColor = [UIColor lightGrayColor];
 	
 	// If this has an event
@@ -161,9 +148,7 @@
 			
 		default:
 			break;
-		
 	}
-	
 	
 	
 	
