@@ -24,6 +24,7 @@
 		
 		self.isTouchEnabled = YES;
 		
+		// Initialize data
 		personalities = [Personality loadPersonalitiesFromPlist];
 		currentEvents = [CurrentEvent loadEventsFromPlist];
 		
@@ -33,7 +34,7 @@
 		
 		
 		
-		// event list -- top
+		// Event list -- top
 		eventListViewController = [[EventListViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		
 		eventListViewController.delegate = self;
@@ -88,7 +89,7 @@
 		
 		// Drag and drop
 		draggedEvent = [CurrentEvent new];
-		draggedSprite = [CCSprite spriteWithFile:@"graphics/Button.png"];
+		draggedSprite = [CCSprite spriteWithFile:@"graphics/PaperEvent.png"];
 		
 		[self addChild:draggedSprite z:5];
 		
@@ -172,9 +173,18 @@
 	[scheduleViewController.table deselectRowAtIndexPath:[scheduleViewController.table indexPathForSelectedRow] animated:TRUE];
 	
 	//Put this stuff in -reloadData method?
-//	[schedule advanceOneDay];
-//	[scheduleViewController.tableView reloadData];
-//	[scheduleViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scheduleViewController.schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+	[schedule advanceOneDay];
+	[scheduleViewController.tableView reloadData];
+	// Scrolls differently if there's a weekend
+	if(((schedule.days.count-1) % 6) == 0)
+		[scheduleViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scheduleViewController.schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+	// Friday
+	if(((schedule.days.count-1) % 6) == 1)
+		[scheduleViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scheduleViewController.schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+	
+	// Not a weekend
+	else
+		[scheduleViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scheduleViewController.schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     return TRUE;    
 }
 
