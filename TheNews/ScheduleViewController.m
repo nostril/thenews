@@ -90,6 +90,7 @@
 			NSLog(@"%i", (schedule.days.count-1) % 6);
 			
 			// Scrolls differently if there's a weekend
+			// Actually, what would be best if each day scrolled slightly less, so monday is on the left, and friday is on the right.
 			if(((schedule.days.count-1) % 6) == 0)
 				[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:schedule.days.count-3 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 			// Friday
@@ -317,8 +318,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+	Event *tempEvent = [[(ScheduleCell*)[tableView cellForRowAtIndexPath:indexPath]day]event];
 	
+	if(eventDetail.isShowing)
+		[eventDetail hideDetail];
+	else
+		[eventDetail showDetail: [[(ScheduleCell*)[tableView cellForRowAtIndexPath:indexPath]day]event]];
 }
 
 @end

@@ -61,6 +61,7 @@
 		// event detail
 		eventDetail = [EventDetail new];
 		eventListViewController.eventDetail = eventDetail;
+		scheduleViewController.eventDetail = eventDetail;
 		eventDetail.position = CGPointMake(screenSize.width/2, 440);
 		[self addChild:eventDetail z:4];
 		
@@ -129,7 +130,7 @@
 	
 	// This is to compensate for the scrolling of the schedule view. But it's not working. Probably because it results in a point off screen. Orrrr.... maybe it is working?
 //	dragEndPoint.y += scheduleViewController.tableView.contentOffset.y;
-	NSLog(@"%f, %f", scheduleViewController.tableView.contentOffset.x, scheduleViewController.tableView.contentOffset.y);
+//	NSLog(@"%f, %f", scheduleViewController.tableView.contentOffset.x, scheduleViewController.tableView.contentOffset.y);
 	
 	
 	NSIndexPath *dragdroppedIndexPath = [scheduleViewController.tableView indexPathForRowAtPoint:dragEndPoint];

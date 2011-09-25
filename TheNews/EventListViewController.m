@@ -177,7 +177,7 @@
     }
     cell.currentEvent = [self.events objectAtIndex:indexPath.row];
 	
-//	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
 	cell.textLabel.numberOfLines = 3;
 	cell.textLabel.textColor = [UIColor blackColor];
@@ -202,8 +202,10 @@
 	
 	
 //	NSLog(@"selected! %i: %@", [[tableView indexPathForSelectedRow]row], [[(SlotListCell*)[self.tableView cellForRowAtIndexPath:indexPath] event ]name] );
-	[eventDetail hideDetail];
-	[eventDetail showDetail: [events objectAtIndex:[[tableView indexPathForSelectedRow]row]]];
+	if(eventDetail.isShowing)
+		[eventDetail hideDetail];
+	else
+		[eventDetail showDetail: [events objectAtIndex:[[tableView indexPathForSelectedRow]row]]];
 
 	
 	

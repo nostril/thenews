@@ -24,7 +24,7 @@
 @property (assign) BOOL *isShowing;
 
 
--(void) showDetail:(CurrentEvent*)event;
+-(void) showDetail:(Event*)event;
 -(void) hideDetail;
 
 @end
