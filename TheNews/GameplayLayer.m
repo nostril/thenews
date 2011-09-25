@@ -135,9 +135,11 @@
 	NSIndexPath *dragdroppedIndexPath = [scheduleViewController.tableView indexPathForRowAtPoint:dragEndPoint];
 	ScheduleCell* dragdroppedCell =(ScheduleCell*) [scheduleViewController.tableView cellForRowAtIndexPath:dragdroppedIndexPath];
 	
-	// Temporary check to see if we dragged onto current day
-	if(dragdroppedIndexPath.row >= (scheduleViewController.schedule.days.count - 3))
+	// Temporary check to see if we dragged onto current day and it's not a weekend
+	if((dragdroppedIndexPath.row >= (scheduleViewController.schedule.days.count - 3))
+	   && ((dragdroppedIndexPath.row % 6) != 0))
 		[dragdroppedCell.day switchCoverageToEvent:draggedEvent];
+//	NSLog(@"%i",(dragdroppedIndexPath.row % 6));
 	
 	
 	[scheduleViewController.tableView reloadData];
