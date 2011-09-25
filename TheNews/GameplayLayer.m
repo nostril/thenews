@@ -24,6 +24,7 @@
 		
 		self.isTouchEnabled = YES;
 		
+		// Initialize data
 		personalities = [Personality loadPersonalitiesFromPlist];
 		currentEvents = [CurrentEvent loadEventsFromPlist];
 		
@@ -33,7 +34,7 @@
 		
 		
 		
-		// event list -- top
+		// Event list -- top
 		eventListViewController = [[EventListViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		
 		eventListViewController.delegate = self;
@@ -88,7 +89,7 @@
 		
 		// Drag and drop
 		draggedEvent = [CurrentEvent new];
-		draggedSprite = [CCSprite spriteWithFile:@"graphics/Button.png"];
+		draggedSprite = [CCSprite spriteWithFile:@"graphics/PaperEvent.png"];
 		
 		[self addChild:draggedSprite z:5];
 		
